@@ -1,7 +1,11 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
@@ -27,6 +31,17 @@ abstract class Page {
         this.wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(5))                   //builder patternt használok - úgy építek meg egy példányt valamiből, hogy nem kontstruktort hívok és paramétereket adok át, hanem függvényeken keresztül tulajdonságonként megépítem. Így olyan sorrendben adom meg a tulajdonságokat ahogy akarom. Konstruktoron keresztül fix bekérési sorrend van, pl. itt előbb url-t, majd drivert kell megadni.
                 .pollingEvery(Duration.ofMillis(500))
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class);  //a .class az osztálynak a class változóját jelnti
     }
+
+    public final void navigateTo() {
+        driver.navigate().to(url);  //a navigate().to megőrzi a browser historyt, a driver.get pedig nem
+    }
+
+    public final WebElement findElementOnPage(By locator) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+    }
+
+
 }
