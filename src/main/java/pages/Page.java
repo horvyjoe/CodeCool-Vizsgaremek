@@ -16,8 +16,16 @@ abstract class Page {
     private final WebDriver driver;
     private final String url;
 
+    private final String username = "lovasia";
+    private final String password = "kispal123";
+
 
     private final Wait<WebDriver> wait; //fluentWaitet használunk,mert jobban alakítható az igényeinkhez. Wait
+
+    private static final By BUTTON_LOGIN_TAB = By.xpath("//*[@id='register']//*[@id='login-form-button']");
+    private static final By FIELD_USERNAME = By.id("email");
+    private static final By FIELD_PASSWORD = By.id("password");
+    private static final By BUTTON_LOGIN = By.xpath("//*[@onclick='myFunction()']");
 
 
 
@@ -39,8 +47,15 @@ abstract class Page {
     }
 
     public final WebElement findElementOnPage(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 
+    }
+
+    public final void login() {
+        findElementOnPage(BUTTON_LOGIN_TAB).click();
+        findElementOnPage(FIELD_USERNAME).sendKeys(username);
+        findElementOnPage(FIELD_PASSWORD).sendKeys(password);
+        findElementOnPage(BUTTON_LOGIN).click();
     }
 
 

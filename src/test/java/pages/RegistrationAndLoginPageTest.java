@@ -1,16 +1,13 @@
 package pages;
 
-import enums.PagesUrl;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("This test covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
+@Feature("Registration and login")
 class RegistrationAndLoginPageTest {
     private WebDriver driver;
 
@@ -31,21 +28,32 @@ class RegistrationAndLoginPageTest {
 
 
     @Test
-    void clickAcceptTermsAndConditionsButton() {
-        WebElement termsAndConditionsPopup = registrationAndLoginPage.findElementOnPage(By.className("popup"));
-
-        Assertions.assertTrue(termsAndConditionsPopup.isDisplayed());
+    @Description("Validating Terms and conditions popup")
+    @Story("Terms and conditions popup is displayed and can be accepted.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Accept Terms and conditions")
+    void clickAcceptTermsAndConditionsButtonTest() {
+        Assertions.assertTrue(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
         registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
-        Assertions.assertFalse(termsAndConditionsPopup.isDisplayed());
+        Assertions.assertFalse(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
 
-    }
-
-    @AfterEach
-    void tearDown() {
-        driver.quit();
     }
 
     @Test
-    void name() {
+    @Description("Validating new user registration function")
+    @Story("")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Register new user")
+    void registerNewUser () {
+        registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
+        registrationAndLoginPage.clickRegisterButton();
+        Assertions.assertTrue(registrationAndLoginPage.validateRegisterWindow());
+
     }
+
+    /* @AfterEach
+    void tearDown() {
+        driver.quit();
+    }*/
+
 }
