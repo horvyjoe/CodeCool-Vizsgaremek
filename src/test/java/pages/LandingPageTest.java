@@ -1,5 +1,8 @@
 package pages;
 
+import com.codecool.vizsgaremek.pages.LandingPage;
+import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
+import com.codecool.vizsgaremek.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
@@ -7,8 +10,6 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class LandingPageTest {
     private WebDriver driver;
@@ -35,7 +36,7 @@ class LandingPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login with existing username")
     void loginTest() {
-        landingPage.login();
+        registrationAndLoginPage.login();
         Assertions.assertTrue(landingPage.verifyLogin());
 
     }

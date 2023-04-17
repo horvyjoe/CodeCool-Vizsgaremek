@@ -1,5 +1,7 @@
 package pages;
 
+import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
+import com.codecool.vizsgaremek.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
@@ -25,7 +27,6 @@ class RegistrationAndLoginPageTest {
         registrationAndLoginPage = new RegistrationAndLoginPage(driver);
         registrationAndLoginPage.navigateTo();
     }
-
 
     @Test
     @Description("Validating Terms and conditions popup")

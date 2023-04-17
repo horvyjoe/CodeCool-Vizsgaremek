@@ -1,6 +1,6 @@
-package pages;
+package com.codecool.vizsgaremek.pages;
 
-import enums.PagesUrl;
+import com.codecool.vizsgaremek.enums.PagesUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
