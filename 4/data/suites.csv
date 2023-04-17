@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Mon Apr 17 18:31:31 GMT 2023","Mon Apr 17 18:31:32 GMT 2023","210","","pages.LandingPageTest","","pages.LandingPageTest","loginTest","Login with existing username",""
+"broken","Mon Apr 17 18:31:31 GMT 2023","Mon Apr 17 18:31:31 GMT 2023","208","","pages.RegistrationAndLoginPageTest","","pages.RegistrationAndLoginPageTest","registerNewUser","Register new user","Validating new user registration function"
+"broken","Mon Apr 17 18:31:30 GMT 2023","Mon Apr 17 18:31:31 GMT 2023","1023","","pages.RegistrationAndLoginPageTest","","pages.RegistrationAndLoginPageTest","clickAcceptTermsAndConditionsButtonTest","Accept Terms and conditions","Validating Terms and conditions popup"
+"broken","Mon Apr 17 18:31:32 GMT 2023","Mon Apr 17 18:31:32 GMT 2023","205","","pages.LandingPageTest","","pages.LandingPageTest","clickHomeButtonTest","Click Home button",""
