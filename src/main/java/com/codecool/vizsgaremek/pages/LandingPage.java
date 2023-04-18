@@ -14,6 +14,7 @@ public class LandingPage extends Page {
     private static final By BUTTON_HOME = By.xpath("//*[@href='https://lennertamas.github.io/roxo/landings']");
     private static final By BUTTON_PROFILE = By.id("profile-btn");
     private static final By TEXT_H1 = By.xpath("//h1");
+    private static final By BUTTON_ABOUT_PAGE = By.xpath("//a[text()='About']");
 
     public void clickHomeButton() {
         findElementOnPage(BUTTON_HOME).click();
@@ -26,4 +27,12 @@ public class LandingPage extends Page {
     public boolean verifyHomeButton() {
         return findElementOnPage(TEXT_H1).getText().equals("404");
     }
+
+    public void clickAboutButton() {
+        findElementOnPage(BUTTON_ABOUT_PAGE).click();
+    }
+
+
+
+
 }

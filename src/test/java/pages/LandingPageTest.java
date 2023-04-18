@@ -1,5 +1,6 @@
 package pages;
 
+import com.codecool.vizsgaremek.enums.PagesUrl;
 import com.codecool.vizsgaremek.pages.LandingPage;
 import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.WebDriverFactory;
@@ -52,4 +53,16 @@ class LandingPageTest {
         landingPage.clickHomeButton();
         Assertions.assertFalse(landingPage.verifyHomeButton());
     }
+
+    @Test
+    @Description("")
+    @Story(".")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Click About button")
+    void clickAboutButtonTest() {
+        registrationAndLoginPage.login();
+        landingPage.clickAboutButton();
+        Assertions.assertEquals(PagesUrl.ABOUT_PAGE.getUrl(), driver.getCurrentUrl());
+    }
+
 }
