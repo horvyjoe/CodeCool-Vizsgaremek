@@ -39,20 +39,18 @@ class RegistrationAndLoginPageTest {
     }
 
     @Test
-    @Description("Validating new user registration function")
-    @Story("")
+    @Description("Validating new user registration function is possible")
+    @Story("By clicking on register new user tab, the tab switches and allows to create new user")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Register new user")
+    @DisplayName("Register new user tab")
     void registerNewUser () {
-        //registrationAndLoginPage.navigateTo();
         registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
         registrationAndLoginPage.clickRegisterButton();
         Assertions.assertTrue(registrationAndLoginPage.validateRegisterWindow());
     }
 
-    /* @AfterEach
+    @AfterEach
     void tearDown() {
         driver.quit();
-    }*/
-
+    }
 }

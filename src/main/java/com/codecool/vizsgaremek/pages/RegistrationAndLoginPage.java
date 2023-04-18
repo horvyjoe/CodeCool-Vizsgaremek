@@ -22,7 +22,7 @@ public class RegistrationAndLoginPage extends Page{
     // - Login
     private final String username = "lovasia";
     private final String password = "kispal123";
-    private static final By BUTTON_LOGIN_TAB = By.xpath("//*[@id='register']//*[@id='login-form-button']");
+    // private static final By BUTTON_LOGIN_TAB = By.xpath("//*[@id='register']//*[@id='login-form-button']");
     private static final By FIELD_USERNAME = By.id("email");
     private static final By FIELD_PASSWORD = By.id("password");
     private static final By BUTTON_LOGIN = By.xpath("//*[@onclick='myFunction()']");
@@ -48,7 +48,6 @@ public class RegistrationAndLoginPage extends Page{
     }
 
     public void login(String username, String password) {
-        //findElementOnPage(BUTTON_LOGIN_TAB).click();
         findElementOnPage(FIELD_USERNAME).sendKeys(username);
         findElementOnPage(FIELD_PASSWORD).sendKeys(password);
         findElementOnPage(BUTTON_LOGIN).click();

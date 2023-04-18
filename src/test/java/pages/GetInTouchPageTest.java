@@ -38,11 +38,11 @@ public class GetInTouchPageTest {
     }
 
     @Test
-    @Description("")
-    @Story(".")
+    @Description("The test verifies the 'Get in touch' menu's send message function.")
+    @Story("On Get in touch page sending a message must be possible.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Perform message sending")
-    void loginTest() throws InterruptedException {
+    @DisplayName("Sending message")
+    void sendMessage() throws InterruptedException {
         landingPage.clickGetInTouchButton();
         getInTouchPage.performSendMessage(
                 "András",
@@ -60,7 +60,10 @@ public class GetInTouchPageTest {
         Assertions.assertEquals(expectedAlertText, actualAlertText);
         Thread.sleep(5000);
         Assertions.assertFalse(getInTouchPage.verifyMessageSent());
-
     }
 
+    @AfterEach
+    void tearDown() {
+        driver.quit();
+    }
 }

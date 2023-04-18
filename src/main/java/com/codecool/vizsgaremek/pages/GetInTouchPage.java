@@ -28,7 +28,6 @@ public class GetInTouchPage extends Page{
         new Select(findElementOnPage(DROPDOWN_PROJECT_TYPE)).selectByVisibleText(projectType);
         findElementOnPage(FIELD_ABOUT_PROJECT).sendKeys(message);
         findElementOnPage(BUTTON_SEND_MESSAGE).click();
-
     }
 
     public boolean verifyMessageSent() {

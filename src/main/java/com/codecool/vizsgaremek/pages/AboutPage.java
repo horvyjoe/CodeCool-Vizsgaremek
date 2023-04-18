@@ -8,9 +8,4 @@ public class AboutPage extends Page{
     public AboutPage(WebDriver driver) {
         super(PagesUrl.ABOUT_PAGE.getUrl(), driver);
     }
-
-
-
-
-
 }

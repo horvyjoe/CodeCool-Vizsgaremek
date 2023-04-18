@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LandingPage extends Page {
-
     public LandingPage(WebDriver driver) {
         super(PagesUrl.LANDING_PAGE.getUrl(), driver);
     }
@@ -25,7 +24,7 @@ public class LandingPage extends Page {
         return findElementOnPage(BUTTON_PROFILE).isDisplayed();
     }
 
-    public boolean verifyHomeButton() {
+    public boolean verifyHomeButtonNavigation() {
         return findElementOnPage(TEXT_H1).getText().equals("404");
     }
 
@@ -36,8 +35,4 @@ public class LandingPage extends Page {
     public void clickGetInTouchButton() {
         findElementOnPage(BUTTON_GET_IN_TOUCH).click();
     }
-
-
-
-
 }
