@@ -48,7 +48,7 @@ public class RegistrationAndLoginPage extends Page{
     }
 
     public void login(String username, String password) {
-        findElementOnPage(BUTTON_LOGIN_TAB).click();
+        //findElementOnPage(BUTTON_LOGIN_TAB).click();
         findElementOnPage(FIELD_USERNAME).sendKeys(username);
         findElementOnPage(FIELD_PASSWORD).sendKeys(password);
         findElementOnPage(BUTTON_LOGIN).click();

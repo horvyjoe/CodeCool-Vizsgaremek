@@ -11,10 +11,16 @@ public class WebDriverFactory {
 
     public static WebDriver getWebDriver() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
+        options.addArguments("window-size=1280,800");
         options.addArguments("incognito");
-        WebDriver driver = new ChromeDriver(options);
-        return driver;
+        options.addArguments("disable-extensions");
+        options.addArguments("remote-allow-origins=*");
+        options.addArguments("disable-dev-shm-usage");
+        options.addArguments("no-sandbox");
+        options.addArguments("headless");
+        //WebDriver driver = new ChromeDriver(options);
+        //return driver;
+        return new ChromeDriver(options);
     }
 }
 

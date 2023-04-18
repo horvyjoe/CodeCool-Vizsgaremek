@@ -11,14 +11,12 @@ import org.openqa.selenium.WebDriver;
 @Epic("This test covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
 @Feature("Registration and login")
 class RegistrationAndLoginPageTest {
-    private WebDriver driver;
-
+    public WebDriver driver;
     private RegistrationAndLoginPage registrationAndLoginPage;
 
     @BeforeAll
     static void beforeAll() {
         WebDriverManager.chromedriver().setup();
-
     }
 
     @BeforeEach
@@ -34,10 +32,10 @@ class RegistrationAndLoginPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Accept Terms and conditions")
     void clickAcceptTermsAndConditionsButtonTest() {
+        //registrationAndLoginPage.navigateTo();
         Assertions.assertTrue(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
         registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
         Assertions.assertFalse(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
-
     }
 
     @Test
@@ -46,10 +44,10 @@ class RegistrationAndLoginPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Register new user")
     void registerNewUser () {
+        //registrationAndLoginPage.navigateTo();
         registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
         registrationAndLoginPage.clickRegisterButton();
         Assertions.assertTrue(registrationAndLoginPage.validateRegisterWindow());
-
     }
 
     /* @AfterEach

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 class LandingPageTest {
-    private WebDriver driver;
+    public WebDriver driver;
     private LandingPage landingPage;
     private RegistrationAndLoginPage registrationAndLoginPage;
 
@@ -26,7 +26,7 @@ class LandingPageTest {
         driver = WebDriverFactory.getWebDriver();
         landingPage = new LandingPage(driver);
         landingPage.navigateTo();
-       // registrationAndLoginPage = new RegistrationAndLoginPage(driver);
+        registrationAndLoginPage = new RegistrationAndLoginPage(driver);
         registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
     }
 
@@ -47,10 +47,9 @@ class LandingPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Click Home button")
     void clickHomeButtonTest() {
-        registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
+
+        registrationAndLoginPage.login();
         landingPage.clickHomeButton();
-        Assertions.assertFalse(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
-
+        Assertions.assertFalse(landingPage.verifyHomeButton());
     }
-
 }
