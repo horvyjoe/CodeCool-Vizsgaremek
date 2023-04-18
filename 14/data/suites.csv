@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Apr 18 17:42:24 GMT 2023","Tue Apr 18 17:42:25 GMT 2023","1268","","pages.LandingPageTest","","pages.LandingPageTest","clickGetInTouchButtonTest","Click Get in touch button",""
+"failed","Tue Apr 18 17:42:25 GMT 2023","Tue Apr 18 17:42:32 GMT 2023","6366","","pages.GetInTouchPageTest","","pages.GetInTouchPageTest","loginTest","Perform message sending",""
+"passed","Tue Apr 18 17:42:21 GMT 2023","Tue Apr 18 17:42:23 GMT 2023","1293","","pages.LandingPageTest","","pages.LandingPageTest","clickAboutButtonTest","Click About button",""
+"passed","Tue Apr 18 17:42:18 GMT 2023","Tue Apr 18 17:42:19 GMT 2023","1251","","pages.RegistrationAndLoginPageTest","","pages.RegistrationAndLoginPageTest","clickAcceptTermsAndConditionsButtonTest","Accept Terms and conditions","Validating Terms and conditions popup"
+"passed","Tue Apr 18 17:42:20 GMT 2023","Tue Apr 18 17:42:21 GMT 2023","1676","","pages.LandingPageTest","","pages.LandingPageTest","loginTest","Login with existing username",""
+"passed","Tue Apr 18 17:42:19 GMT 2023","Tue Apr 18 17:42:20 GMT 2023","431","","pages.RegistrationAndLoginPageTest","","pages.RegistrationAndLoginPageTest","registerNewUser","Register new user","Validating new user registration function"
+"failed","Tue Apr 18 17:42:23 GMT 2023","Tue Apr 18 17:42:24 GMT 2023","1300","","pages.LandingPageTest","","pages.LandingPageTest","clickHomeButtonTest","Click Home button",""

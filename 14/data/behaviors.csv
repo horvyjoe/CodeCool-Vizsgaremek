@@ -1,0 +1,4 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","",".","2","0","3","0","0"
+"This test covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website","Registration and login","Terms and conditions popup is displayed and can be accepted.","0","0","1","0","0"
+"This test covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website","Registration and login","","0","0","1","0","0"
