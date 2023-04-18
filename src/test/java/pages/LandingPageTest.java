@@ -65,4 +65,15 @@ class LandingPageTest {
         Assertions.assertEquals(PagesUrl.ABOUT_PAGE.getUrl(), driver.getCurrentUrl());
     }
 
+    @Test
+    @Description("")
+    @Story(".")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Click Get in touch button")
+    void clickGetInTouchButtonTest() {
+        registrationAndLoginPage.login();
+        landingPage.clickGetInTouchButton();
+        Assertions.assertEquals(PagesUrl.GET_IN_TOUCH.getUrl(), driver.getCurrentUrl());
+    }
+
 }

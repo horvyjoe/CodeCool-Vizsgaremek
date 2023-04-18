@@ -39,6 +39,14 @@ abstract class Page {
 
     public final WebElement findElementOnPage(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-
     }
+
+    public void AcceptAlert() {
+        driver.switchTo().alert().accept();
+    }
+
+    public String GetAlertText() {
+        return driver.switchTo().alert().getText();
+    }
+
 }
