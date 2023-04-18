@@ -32,7 +32,6 @@ class RegistrationAndLoginPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Accept Terms and conditions")
     void clickAcceptTermsAndConditionsButtonTest() {
-        //registrationAndLoginPage.navigateTo();
         Assertions.assertTrue(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
         registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
         Assertions.assertFalse(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
