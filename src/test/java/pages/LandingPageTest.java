@@ -11,7 +11,9 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-class LandingPageTest {
+import testUtilities.TestUtilities;
+
+class LandingPageTest extends TestUtilities {
     public WebDriver driver;
     private LandingPage landingPage;
     private RegistrationAndLoginPage registrationAndLoginPage;
@@ -30,8 +32,10 @@ class LandingPageTest {
         registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
     }
 
+
     @Test
-    @Tag("TC001")
+    @ManualTestCaseID("TC001")
+    //@Tag("TC001")
     @Description("This test checks if with existing username and password the login is possible.")
     @Story("A username and password is given. This test verifies login is successful with the given login credentials.")
     @Severity(SeverityLevel.CRITICAL)
