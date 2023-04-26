@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 
 
 //@Epic("This test covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
-@Feature("Registration and login")
 class RegistrationAndLoginPageTest {
     public WebDriver driver;
     private RegistrationAndLoginPage registrationAndLoginPage;
@@ -27,6 +26,7 @@ class RegistrationAndLoginPageTest {
     }
 
     @Epic("Register and login functions - These tests covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
+    @Feature("Terms and conditions popup function")
     @Test
     @Tag("")
     @Description("Validating Terms and conditions popup")
@@ -40,6 +40,7 @@ class RegistrationAndLoginPageTest {
     }
 
     @Epic("Register and login functions - These tests covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
+    @Feature("Registration function")
     @Test
     @Description("Validating new user registration function is possible")
     @Story("By clicking on register new user tab, the tab switches and allows to create new user")
