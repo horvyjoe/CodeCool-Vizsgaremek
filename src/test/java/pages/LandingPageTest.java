@@ -34,8 +34,6 @@ class LandingPageTest extends TestUtilities {
 
 
     @Test
-    @ManualTestCaseID("TC001")
-    //@Tag("TC001")
     @Description("This test checks if with existing username and password the login is possible.")
     @Story("A username and password is given. This test verifies login is successful with the given login credentials.")
     @Severity(SeverityLevel.CRITICAL)

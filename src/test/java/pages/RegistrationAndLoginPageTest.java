@@ -8,7 +8,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 
-@Epic("This test covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
+//@Epic("This test covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
 @Feature("Registration and login")
 class RegistrationAndLoginPageTest {
     public WebDriver driver;
@@ -26,7 +26,9 @@ class RegistrationAndLoginPageTest {
         registrationAndLoginPage.navigateTo();
     }
 
+    @Epic("Register and login functions - These tests covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
     @Test
+    @Tag("")
     @Description("Validating Terms and conditions popup")
     @Story("Terms and conditions popup is displayed and can be accepted.")
     @Severity(SeverityLevel.CRITICAL)
@@ -37,6 +39,7 @@ class RegistrationAndLoginPageTest {
         Assertions.assertFalse(registrationAndLoginPage.validateTermsAndConditionsPopupIsDisplayed());
     }
 
+    @Epic("Register and login functions - These tests covers the validation of register and login functions on https://lennertamas.github.io/roxo/index.html website")
     @Test
     @Description("Validating new user registration function is possible")
     @Story("By clicking on register new user tab, the tab switches and allows to create new user")
