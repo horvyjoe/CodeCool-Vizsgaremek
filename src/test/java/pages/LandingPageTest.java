@@ -11,7 +11,6 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import testUtilities.TestUtilities;
 
 class LandingPageTest {
     public WebDriver driver;
