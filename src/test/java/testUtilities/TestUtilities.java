@@ -1,4 +1,4 @@
-package testUtilities;
+/*package testUtilities;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,4 +11,4 @@ public class TestUtilities {
     public @interface ManualTestCaseID {
         String value();
     }
-}
+}*/

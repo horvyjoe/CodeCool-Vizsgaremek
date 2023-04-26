@@ -13,7 +13,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import testUtilities.TestUtilities;
 
-class LandingPageTest extends TestUtilities {
+class LandingPageTest {
     public WebDriver driver;
     private LandingPage landingPage;
     private RegistrationAndLoginPage registrationAndLoginPage;
