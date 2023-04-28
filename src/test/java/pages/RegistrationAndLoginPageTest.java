@@ -31,6 +31,8 @@ class RegistrationAndLoginPageTest {
         registrationAndLoginPage = new RegistrationAndLoginPage(driver);
         registrationAndLoginPage.navigateTo();
         termsAndConditions = new TermsAndConditions(driver);
+        termsAndConditions.clickAcceptTermsAndConditionsButton();
+
     }
 
     @Test
@@ -41,7 +43,6 @@ class RegistrationAndLoginPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Navigate to URL")
     void navigateToUrlTest() {
-        registrationAndLoginPage.navigateTo();
         Assertions.assertEquals(PagesUrl.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
     }
 
@@ -53,7 +54,6 @@ class RegistrationAndLoginPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Register new user tab")
     void registerNewUser () {
-        termsAndConditions.clickAcceptTermsAndConditionsButton();
         registrationAndLoginPage.clickRegisterButton();
         Assertions.assertTrue(registrationAndLoginPage.validateRegisterWindow());
     }

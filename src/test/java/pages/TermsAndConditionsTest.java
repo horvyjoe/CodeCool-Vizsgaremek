@@ -2,13 +2,11 @@ package pages;
 
 import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.enums.PagesUrl;
-import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -36,7 +34,7 @@ public class TermsAndConditionsTest {
     @Feature("Check URL")
     @Tag("TC001")
     @Description("Validates navigating to the given URL is successful.")
-    @Story("User navigates to https://lennertamas.github.io/roxo/index.html URL.")
+    @Story("URL check - User navigates to https://lennertamas.github.io/roxo/index.html URL.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Navigate to URL")
     void navigateToUrlTest() {
@@ -48,7 +46,7 @@ public class TermsAndConditionsTest {
     @Feature("'Terms and conditions' functions")
     @Tag("TC002")
     @Description("Accept 'Terms and conditions'")
-    @Story("Terms and conditions window is displayed and can be accepted by user.")
+    @Story("Accept - Terms and conditions window is displayed and can be accepted by user.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Accept 'Terms and conditions'")
     void clickAcceptTermsAndConditionsButtonTest() {
@@ -61,7 +59,7 @@ public class TermsAndConditionsTest {
     @Feature("'Terms and conditions' functions")
     @Tag("TC003")
     @Description("Close 'Terms and conditions'")
-    @Story("Terms and conditions window is displayed and can be closed by user with button 'X'.")
+    @Story("Close - Terms and conditions window is displayed and can be closed by user with button 'X'.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Close 'Terms and conditions'")
     void clickCloseTermsAndConditionsButtonTest() {
@@ -74,7 +72,7 @@ public class TermsAndConditionsTest {
     @Feature("'Terms and conditions' functions")
     @Tag("TC004")
     @Description("Click out of 'Terms and conditions' window")
-    @Story("Terms and conditions window is displayed and user clicks out of the window.")
+    @Story("Click out - Terms and conditions window is displayed and user clicks out of the window. The window must remain visible.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Click out of 'Terms and conditions'")
     void clickOutsideTermsAndConditionsWindowTest() {
@@ -87,9 +85,9 @@ public class TermsAndConditionsTest {
     @Feature("'Terms and conditions' functions")
     @Tag("TC005")
     @Description("Comparing the text of 'Terms and conditions' to a text stored in a '.txt' file")
-    @Story("Terms and conditions window's displayed text must match text stored in 'termsAndConditions.txt'.")
+    @Story("Verify text - Terms and conditions window's displayed text must match text stored in 'termsAndConditions.txt'.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("'Terms and conditions' text verify")
+    @DisplayName("Verify text of 'Terms and conditions'")
     void verifyTermsAndConditionsTextTest() throws IOException {
         Assertions.assertTrue(termsAndConditions.validateTermsAndConditionsPopupIsDisplayed());
         String actual = termsAndConditions.getTextTermsAndConditions().replaceAll("\\r\\n", "\n");
@@ -101,5 +99,4 @@ public class TermsAndConditionsTest {
     void tearDown() {
         driver.quit();
     }
-
 }
