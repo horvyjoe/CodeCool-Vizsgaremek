@@ -4,6 +4,7 @@ import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.pages.GetInTouchPage;
 import com.codecool.vizsgaremek.pages.LandingPage;
 import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
+import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
@@ -18,6 +19,7 @@ public class GetInTouchPageTest {
     private GetInTouchPage getInTouchPage;
     private LandingPage landingPage;
     private RegistrationAndLoginPage registrationAndLoginPage;
+    private TermsAndConditions termsAndConditions;
 
     @BeforeAll
     static void beforeAll() {
@@ -30,9 +32,10 @@ public class GetInTouchPageTest {
         getInTouchPage = new GetInTouchPage(driver);
         registrationAndLoginPage = new RegistrationAndLoginPage(driver);
         landingPage = new LandingPage(driver);
+        termsAndConditions = new TermsAndConditions(driver);
 
         registrationAndLoginPage.navigateTo();
-        registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
+        termsAndConditions.clickAcceptTermsAndConditionsButton();
         registrationAndLoginPage.login();
         getInTouchPage.navigateTo();
     }

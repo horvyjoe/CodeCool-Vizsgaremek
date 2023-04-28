@@ -11,13 +11,9 @@ public class RegistrationAndLoginPage extends Page{
     }
 
     // LOCATORS
-    // - Terms and conditions
-    private static final By BUTTON_ACCEPT_TERMS_AND_CONDITIONS = By.id("terms-and-conditions-button");
-    private static final By BUTTON_REGISTER = By.id("register-form-button");
-    private static final By POPUP_TERMS_AND_CONDITIONS = By.className("popup");
-
     // - Register new user
     private static final By FIELD_EMAIL_TO_REGISTER = By.id("register-email");
+    private static final By BUTTON_REGISTER = By.id("register-form-button");
 
     // - Login
     private final String username = "lovasia";
@@ -27,15 +23,9 @@ public class RegistrationAndLoginPage extends Page{
     private static final By FIELD_PASSWORD = By.id("password");
     private static final By BUTTON_LOGIN = By.xpath("//*[@onclick='myFunction()']");
 
-    // Terms and conditions function
 
-    public void clickAcceptTermsAndConditionsButton() {
-        findElementOnPage(BUTTON_ACCEPT_TERMS_AND_CONDITIONS).click();
-    }
 
-    public boolean validateTermsAndConditionsPopupIsDisplayed() {
-        return findElementOnPage(POPUP_TERMS_AND_CONDITIONS).isDisplayed();
-    }
+
 
     // Register new user function
 

@@ -4,6 +4,7 @@ import com.codecool.vizsgaremek.enums.PagesUrl;
 import com.codecool.vizsgaremek.pages.LandingPage;
 import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.WebDriverFactory;
+import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
@@ -12,10 +13,11 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
-class LandingPageTest {
+public class LandingPageTest {
     public WebDriver driver;
     private LandingPage landingPage;
     private RegistrationAndLoginPage registrationAndLoginPage;
+    private TermsAndConditions termsAndConditions;
 
     @BeforeAll
     static void beforeAll() {
@@ -28,7 +30,9 @@ class LandingPageTest {
         landingPage = new LandingPage(driver);
         landingPage.navigateTo();
         registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickAcceptTermsAndConditionsButton();
+        termsAndConditions = new TermsAndConditions(driver);
+        termsAndConditions.clickAcceptTermsAndConditionsButton();
+
     }
 
 
