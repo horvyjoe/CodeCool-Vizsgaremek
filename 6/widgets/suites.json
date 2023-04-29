@@ -1,1 +1,0 @@
-{"total":2,"items":[{"uid":"88f1345085357e0fda3e893eb37983d9","name":"pages.LandingPageTest","statistic":{"failed":1,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":2}},{"uid":"3714463055c5a188f03ab14cc596f8fd","name":"pages.RegistrationAndLoginPageTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}}]}
