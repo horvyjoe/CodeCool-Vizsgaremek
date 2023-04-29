@@ -27,6 +27,7 @@ public class RegistrationAndLoginPage extends Page{
     private static final By FIELD_USERNAME = By.id("email");
     private static final By FIELD_PASSWORD = By.id("password");
     private static final By BUTTON_LOGIN = By.xpath("//*[@onclick='myFunction()']");
+    private static final By TEXT_USERNAME_OR_PASSWORD_IS_NOT_CORRECT = By.id("alert");
 
     // - Profile
     private static final By BUTTON_PROFILE = By.id("profile-btn");
@@ -77,7 +78,10 @@ public class RegistrationAndLoginPage extends Page{
         findElementOnPage(BUTTON_LOGIN).click();
     }
 
-    public boolean verifyLoginIsSuccessful() {
+    public boolean verifyLoginFailed() {
+        return findElementOnPage(TEXT_USERNAME_OR_PASSWORD_IS_NOT_CORRECT).isDisplayed();
+    }
+    public boolean verifyUserProfileIsVisible() {
         return findElementOnPage(BUTTON_PROFILE).isDisplayed();
     }
 

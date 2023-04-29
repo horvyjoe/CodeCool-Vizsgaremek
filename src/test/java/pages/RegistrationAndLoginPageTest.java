@@ -133,13 +133,13 @@ class RegistrationAndLoginPageTest {
     @Test
     @Feature("'Login' function")
     @Tag("LOG003")
-    @Description("Empty credentials login  - validating  user login is not possible when no login data is provided")
+    @Description("Empty credentials login - validating user login is not possible when no login data is provided")
     @Story("Empty credentials login - User leaves login credential fields empty, and clicks on 'Login' button.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("'Empty' credentials login")
     void emptyCredentialLoginTest () {
         registrationAndLoginPage.clickLoginButton();
-        Assertions.assertFalse(registrationAndLoginPage.verifyLoginIsSuccessful());
+        Assertions.assertTrue(registrationAndLoginPage.verifyLoginFailed());
     }
 
     @Test
@@ -151,7 +151,8 @@ class RegistrationAndLoginPageTest {
     @DisplayName("'Built-in' credentials login ")
     void builtInCredentialLoginTest () {
         registrationAndLoginPage.performLogin();
-        Assertions.assertTrue(registrationAndLoginPage.verifyLoginIsSuccessful());
+        Assertions.assertFalse(registrationAndLoginPage.verifyLoginFailed());
+        Assertions.assertTrue(registrationAndLoginPage.verifyUserProfileIsVisible());
     }
 
 
