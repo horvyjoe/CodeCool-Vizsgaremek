@@ -33,7 +33,7 @@ class RegistrationAndLoginPageTest {
 
     @Test
     @Feature("Check URL")
-    @Tag("RL001")
+    @Tag("REG001")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/index.html URL.")
     @Severity(SeverityLevel.CRITICAL)
@@ -44,27 +44,27 @@ class RegistrationAndLoginPageTest {
 
     @Test
     @Feature("'Registration' function")
-    @Tag("RL002")
-    @Description("Register tab - validating new user registration tab is displayed")
+    @Tag("REG002")
+    @Description("Register tab - validating switching tab when 'Register' tab is clicked")
     @Story("Register tab - By clicking on 'Register' tab, the tab switches and allows user to register a new user.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Switch tab to register new user")
-    void switchToregisterTab () {
+    @DisplayName("Switch to 'Register' tab")
+    void switchToRegisterTabTest () {
         registrationAndLoginPage.clickRegisterTab();
         Assertions.assertTrue(registrationAndLoginPage.validateRegisterWindow());
     }
 
     @Test
     @Feature("'Registration' function")
-    @Tag("RL003")
+    @Tag("REG003")
     @Description("Using correct credentials - validating new user registration is possible")
     @Story("Correct credentials - User registers a new user with correct credentials.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Correct credentials registration")
-    void registerNewUser () {
+    void registerNewUserTest () {
         String username = "John";
         String password = "Doe123";
-        String email = " johndoe@gmail.com";
+        String email = "johndoe@gmail.com";
         String description = "John Doe is back";
         registrationAndLoginPage.clickRegisterTab();
         registrationAndLoginPage.performRegistration(username, password, email, description);
@@ -74,17 +74,87 @@ class RegistrationAndLoginPageTest {
 
     @Test
     @Feature("'Registration' function")
-    @Tag("RL004")
+    @Tag("REG004")
     @Description("Using 'empty' credentials - validating new user registration is not possible when no valid data's are provided")
     @Story("Empty credentials - User registers a new user with empty credentials.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Empty credentials registration")
-    void registerWithEmptyCredentials () {
+    void registerWithEmptyCredentialsTest () {
         registrationAndLoginPage.clickRegisterTab();
         registrationAndLoginPage.clickRegisterButton();
 
         Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
     }
+
+    @Test
+    @Feature("'Registration' function")
+    @Tag("REG005")
+    @Description("Using 'invalid email' credentials - new user registration is not possible when no valid email address is provided")
+    @Story("Invalid email credential - User registers a new user with invalid email credential.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Invalid email credential registration")
+    void registerWithInvalidEmailTest () {
+        String username = "johnDoe";
+        String password = "Doe123";
+        String email = "j@hnd@e@gmail+c@m";
+        String description = "John Doe is back";
+        registrationAndLoginPage.clickRegisterTab();
+        registrationAndLoginPage.performRegistration(username, password, email, description);
+
+        Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
+    }
+
+    // Login tests
+    @Test
+    @Feature("'Login' function")
+    @Tag("LOG001")
+    @Description("Login window - validates after handling the 'Terms and conditions' window, the 'Login' window is visible by default")
+    @Story("Login window - after handling the 'Terms and conditions' window, the 'Login' window is visible by default.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("'Login' window check")
+    void loginWindowTest () {
+        Assertions.assertTrue(registrationAndLoginPage.verifyLoginWindow());
+    }
+
+    @Test
+    @Feature("'Login' function")
+    @Tag("LOG002")
+    @Description("Login tab - Verifies after switching to 'Register' tab, register window is displayed. 'Login' tab is active, and when a click is performed on it, the 'login' window will be displayed")
+    @Story("Login tab - User switches to 'Register' tab, then switches back to 'Login' tab.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("'Login' tab check")
+    void loginTabTest () {
+        registrationAndLoginPage.clickRegisterTab();
+        registrationAndLoginPage.clickLoginTab();
+
+        Assertions.assertTrue(registrationAndLoginPage.verifyLoginWindow());
+    }
+
+    @Test
+    @Feature("'Login' function")
+    @Tag("LOG003")
+    @Description("Empty credentials login  - validating  user login is not possible when no login data is provided")
+    @Story("Empty credentials login - User leaves login credential fields empty, and clicks on 'Login' button.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("'Empty' credentials login")
+    void emptyCredentialLoginTest () {
+        registrationAndLoginPage.clickLoginButton();
+        Assertions.assertFalse(registrationAndLoginPage.verifyLoginIsSuccessful());
+    }
+
+    @Test
+    @Feature("'Login' function")
+    @Tag("LOG004")
+    @Description("Built-in credentials login  - validating  user login is possible with built-in login credentials")
+    @Story("Built-in credentials login - User logs in with built-in login credentials.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("'Built-in' credentials login ")
+    void builtInCredentialLoginTest () {
+        registrationAndLoginPage.performLogin();
+        Assertions.assertTrue(registrationAndLoginPage.verifyLoginIsSuccessful());
+    }
+
+
 
     @AfterEach
     void tearDown() {

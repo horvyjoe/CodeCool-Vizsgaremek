@@ -16,23 +16,26 @@ public class RegistrationAndLoginPage extends Page{
     private static final By FIELD_PASSWORD_TO_REGISTER = By.id("register-password");
     private static final By FIELD_EMAIL_TO_REGISTER = By.id("register-email");
     private static final By FIELD_DESCRIPTION_TO_REGISTER = By.id("register-description");
-    private static final By TAB_REGISTER = By.id("register-form-button");
+    private static final By BUTTON_TAB_REGISTER = By.id("register-form-button");
     private static final By BUTTON_REGISTER = By.xpath("//*[@id=\'register\']//*[@class=\'formGroup\']//*[@class=\'btn2\']");
     private static final By TEXT_USER_REGISTERED = By.id("register-alert");
 
     // - Login
     private static final String BUILT_IN_USERNAME = "lovasia";
     private static final String BUILT_IN_PASSWORD = "kispal123";
-    // private static final By BUTTON_LOGIN_TAB = By.xpath("//*[@id='register']//*[@id='login-form-button']");
+    private static final By BUTTON_TAB_LOGIN = By.xpath("//*[@id='register']//*[@id='login-form-button']");
     private static final By FIELD_USERNAME = By.id("email");
     private static final By FIELD_PASSWORD = By.id("password");
     private static final By BUTTON_LOGIN = By.xpath("//*[@onclick='myFunction()']");
+
+    // - Profile
+    private static final By BUTTON_PROFILE = By.id("profile-btn");
 
 
     // Register new user function
 
     public void clickRegisterTab() {
-        findElementOnPage(TAB_REGISTER).click();
+        findElementOnPage(BUTTON_TAB_REGISTER).click();
     }
 
     public boolean validateRegisterWindow () {
@@ -57,14 +60,29 @@ public class RegistrationAndLoginPage extends Page{
 
     //Login functions
 
-    public void login(String username, String password) {
+    public boolean verifyLoginWindow() {
+        return findElementOnPage(BUTTON_LOGIN).isDisplayed();
+    }
+
+    public void clickLoginTab() {
+        findElementOnPage(BUTTON_TAB_LOGIN).click();
+    }
+    public void clickLoginButton() {
+        findElementOnPage(BUTTON_LOGIN).click();
+    }
+
+    public void performLogin(String username, String password) {
         findElementOnPage(FIELD_USERNAME).sendKeys(username);
         findElementOnPage(FIELD_PASSWORD).sendKeys(password);
         findElementOnPage(BUTTON_LOGIN).click();
     }
 
+    public boolean verifyLoginIsSuccessful() {
+        return findElementOnPage(BUTTON_PROFILE).isDisplayed();
+    }
+
     // OVERLOAD
-    public void login(){
-        login(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
+    public void performLogin(){
+        performLogin(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
     }
 }
