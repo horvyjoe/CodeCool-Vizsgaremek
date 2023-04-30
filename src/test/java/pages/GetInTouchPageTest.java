@@ -36,7 +36,7 @@ public class GetInTouchPageTest {
 
         registrationAndLoginPage.navigateTo();
         termsAndConditions.clickAcceptTermsAndConditionsButton();
-        registrationAndLoginPage.performLogin();
+        registrationAndLoginPage.performBuiltInLogin();
         getInTouchPage.navigateTo();
     }
 

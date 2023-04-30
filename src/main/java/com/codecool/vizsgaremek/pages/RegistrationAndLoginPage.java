@@ -81,12 +81,10 @@ public class RegistrationAndLoginPage extends Page{
     public boolean verifyLoginFailed() {
         return findElementOnPage(TEXT_USERNAME_OR_PASSWORD_IS_NOT_CORRECT).isDisplayed();
     }
-    public boolean verifyUserProfileIsVisible() {
+    public boolean verifyLoginSuccessful() {
         return findElementOnPage(BUTTON_PROFILE).isDisplayed();
     }
-
-    // OVERLOAD
-    public void performLogin(){
+    public void performBuiltInLogin(){
         performLogin(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
     }
 }

@@ -42,7 +42,7 @@ public class LandingPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login with existing user")
     void loginTest() {
-        registrationAndLoginPage.performLogin();
+        registrationAndLoginPage.performBuiltInLogin();
         Assertions.assertTrue(landingPage.verifyLogin());
     }
 
@@ -52,7 +52,7 @@ public class LandingPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Click Home button")
     void clickHomeButtonTest() {
-        registrationAndLoginPage.performLogin();
+        registrationAndLoginPage.performBuiltInLogin();
         landingPage.clickHomeButton();
         Assertions.assertFalse(landingPage.verifyHomeButtonNavigation());
     }
@@ -63,7 +63,7 @@ public class LandingPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Click About button")
     void clickAboutButtonTest() {
-        registrationAndLoginPage.performLogin();
+        registrationAndLoginPage.performBuiltInLogin();
         landingPage.clickAboutButton();
         Assertions.assertEquals(PagesUrl.ABOUT_PAGE.getUrl(), driver.getCurrentUrl());
     }
@@ -74,7 +74,7 @@ public class LandingPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Click Get in touch button")
     void clickGetInTouchButtonTest() {
-        registrationAndLoginPage.performLogin();
+        registrationAndLoginPage.performBuiltInLogin();
         landingPage.clickGetInTouchButton();
         Assertions.assertEquals(PagesUrl.GET_IN_TOUCH.getUrl(), driver.getCurrentUrl());
     }
