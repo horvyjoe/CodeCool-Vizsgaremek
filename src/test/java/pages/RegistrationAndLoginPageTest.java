@@ -6,9 +6,7 @@ import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
-import org.junit.Rule;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -36,17 +34,7 @@ class RegistrationAndLoginPageTest {
         termsAndConditions.clickAcceptTermsAndConditionsButton();
     }
 
-    @Rule
-    public TestWatcher watcher = new TestWatcher() {
 
-        protected void failed(Throwable e, Description description) {
-            // teszthiba esetén rögzítünk egy képernyőképet
-            TakesScreenshot screenshot = (TakesScreenshot) driver;
-            byte[] data = screenshot.getScreenshotAs(OutputType.BYTES);
-            // itt történik meg az allure screenshot létrehozása
-            Allure.addAttachment("Hiba", new ByteArrayInputStream(data));
-        }
-    };
 
     @Test
     @Feature("Check URL")
@@ -190,6 +178,11 @@ class RegistrationAndLoginPageTest {
     }
 
     @AfterEach
+
+    // Shoot screenshot
+    protected void shootScreenshot(String title){
+        Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+    }
     void tearDown() {
         driver.quit();
     }
