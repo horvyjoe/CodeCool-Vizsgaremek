@@ -23,7 +23,7 @@ class RegistrationAndLoginPageTest {
     private RegistrationAndLoginPage registrationAndLoginPage;
     private TermsAndConditions termsAndConditions;
 
-    @Rule
+   /* @Rule
     public TestWatcher watcher = new TestWatcher() {
 
         protected void failed(Throwable e, Description description) {
@@ -34,7 +34,7 @@ class RegistrationAndLoginPageTest {
             Allure.addAttachment("Bug", new ByteArrayInputStream(data));
         }
     };
-
+*/
     @BeforeAll
     static void beforeAll() {
         WebDriverManager.chromedriver().setup();
