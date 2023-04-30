@@ -23,19 +23,7 @@ class RegistrationAndLoginPageTest {
     private RegistrationAndLoginPage registrationAndLoginPage;
     private TermsAndConditions termsAndConditions;
 
-   /* @Rule
-    public TestWatcher watcher = new TestWatcher() {
-
-        protected void failed(Throwable e, Description description) {
-            // teszthiba esetén rögzítünk egy képernyőképet
-            TakesScreenshot screenshot = (TakesScreenshot) driver;
-            byte[] data = screenshot.getScreenshotAs(OutputType.BYTES);
-            // itt történik meg az allure screenshot létrehozása
-            Allure.addAttachment("Bug", new ByteArrayInputStream(data));
-        }
-    };
-*/
-    @BeforeAll
+     @BeforeAll
     static void beforeAll() {
         WebDriverManager.chromedriver().setup();
     }
@@ -176,7 +164,6 @@ class RegistrationAndLoginPageTest {
         registrationAndLoginPage.clickLoginButton();
         Assertions.assertTrue(registrationAndLoginPage.verifyLoginFailed());
         Assertions.assertEquals(PagesUrl.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
-
     }
 
     @Test
@@ -191,8 +178,6 @@ class RegistrationAndLoginPageTest {
         Assertions.assertEquals(PagesUrl.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
         Assertions.assertTrue(registrationAndLoginPage.verifyLoginSuccessful());
     }
-
-
 
     @AfterEach
     void tearDown() {
