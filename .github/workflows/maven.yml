@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2.4.2
     - uses: actions/cache@v1
       with:
         path: |
@@ -35,15 +35,12 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Get Allure history
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2.4.2
       if: always()
       continue-on-error: true
       with:
         ref: gh-pages
         path: gh-pages
-    - name: Generate screenshot on test failure
-      run: mvn -B allure:capture-screen
-      if: ${{ failure() }}
     - name: Test marketplace action
       uses: simple-elf/allure-report-action@master
       if: always()
