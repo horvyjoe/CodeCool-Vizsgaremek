@@ -132,7 +132,7 @@ class RegistrationAndLoginPageTest {
     // Login tests
     @Test
     @Feature("'Login' function")
-    @Tag("LOG001")
+    @Tag("LIN001")
     @Description("Login window - validates after handling the 'Terms and conditions' window, the 'Login' window is visible by default")
     @Story("Login window - after handling the 'Terms and conditions' window, the 'Login' window is visible by default.")
     @Severity(SeverityLevel.CRITICAL)
@@ -143,7 +143,7 @@ class RegistrationAndLoginPageTest {
 
     @Test
     @Feature("'Login' function")
-    @Tag("LOG002")
+    @Tag("LIN002")
     @Description("Login tab - Verifies after switching to 'Register' tab, register window is displayed. 'Login' tab is active, and when a click is performed on it, the 'login' window will be displayed")
     @Story("Login tab - User switches to 'Register' tab, then switches back to 'Login' tab.")
     @Severity(SeverityLevel.CRITICAL)
@@ -158,7 +158,7 @@ class RegistrationAndLoginPageTest {
 
     @Test
     @Feature("'Login' function")
-    @Tag("LOG003")
+    @Tag("LIN003")
     @Description("Empty credentials login - validating user login is not possible when no login data is provided")
     @Story("Empty credentials login - User leaves login credential fields empty, and clicks on 'Login' button.")
     @Severity(SeverityLevel.CRITICAL)
@@ -172,7 +172,7 @@ class RegistrationAndLoginPageTest {
 
     @Test
     @Feature("'Login' function")
-    @Tag("LOG004")
+    @Tag("LIN004")
     @Description("Built-in credentials login - validating user login is possible with built-in login credentials")
     @Story("Built-in credentials login - User logs in with built-in login credentials.")
     @Severity(SeverityLevel.CRITICAL)

@@ -1,17 +1,20 @@
-/*package testUtilities;
+package testUtilities;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestUtilities {
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.METHOD)
-    public @interface ManualTestCaseID {
-        String value();
-    }
+
+   public void navigateToPreviousPage() {
+       WebDriver driver = new ChromeDriver();
+
+      // Visszanavigálás előző oldalra
+       driver.navigate().back();
+
+       // WebDriver leállítása
+       driver.quit();
+   }
 }
 
 
-*/
+

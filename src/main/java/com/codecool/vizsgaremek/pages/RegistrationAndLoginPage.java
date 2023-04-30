@@ -10,6 +10,8 @@ public class RegistrationAndLoginPage extends Page{
         super(PagesUrl.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver);
     }
 
+
+
     // LOCATORS
     // - Register new user
     private static final By FIELD_USERNAME_TO_REGISTER = By.id("register-username");

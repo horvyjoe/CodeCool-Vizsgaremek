@@ -6,12 +6,14 @@ import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import testUtilities.TestUtilities;
+
+import java.io.ByteArrayInputStream;
 
 public class LandingPageTest {
     public WebDriver driver;
@@ -79,8 +81,44 @@ public class LandingPageTest {
         Assertions.assertEquals(PagesUrl.GET_IN_TOUCH.getUrl(), driver.getCurrentUrl());
     }
 
+    @Test
+    @Feature("'Logout' function")
+    @Tag("LOUT001")
+    @Description("Logout - validating user logout is successful")
+    @Story("Logout - User clicks on 'Logout' button.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Logout")
+    void logoutTest () {
+        registrationAndLoginPage.performBuiltInLogin();
+        landingPage.clickLogoutButton();
+        shootScreenshot("Page status");
+        Assertions.assertEquals(PagesUrl.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertTrue(registrationAndLoginPage.verifyLoginWindow());
+    }
+
+    @Test
+    @Feature("'Logout' function")
+    @Tag("LOUT002")
+    @Description("Logout and press 'back arrow' button - validating user logout is successful")
+    @Story("Logout - User clicks on 'Logout' button.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Logout and press 'back'")
+    void logoutAndPressBackTest () {
+        registrationAndLoginPage.performBuiltInLogin();
+        landingPage.clickLogoutButton();
+        driver.navigate().back();
+
+        Assertions.assertFalse(landingPage.verifyLogoutButtonIsDisplayed());
+        shootScreenshot("Page status");
+    }
+
     @AfterEach
     void tearDown() {
         driver.quit();
+    }
+
+    // Shoot screenshot
+    protected void shootScreenshot(String title){
+        Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 }
