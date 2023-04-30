@@ -19,7 +19,7 @@ public class WebDriverFactory {
         options.addArguments("remote-allow-origins=*");
         options.addArguments("disable-dev-shm-usage");
         options.addArguments("no-sandbox");
-        //options.addArguments("headless");
+        options.addArguments("headless");
 
         return new ChromeDriver(options);
     }
