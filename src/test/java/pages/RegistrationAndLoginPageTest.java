@@ -1,6 +1,5 @@
 package pages;
 
-import com.codecool.vizsgaremek.CsvActions;
 import com.codecool.vizsgaremek.enums.PagesUrl;
 import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.WebDriverFactory;
@@ -35,8 +34,19 @@ class RegistrationAndLoginPageTest {
         registrationAndLoginPage.navigateTo();
         termsAndConditions = new TermsAndConditions(driver);
         termsAndConditions.clickAcceptTermsAndConditionsButton();
-
     }
+
+    @Rule
+    public TestWatcher watcher = new TestWatcher() {
+
+        protected void failed(Throwable e, Description description) {
+            // teszthiba esetén rögzítünk egy képernyőképet
+            TakesScreenshot screenshot = (TakesScreenshot) driver;
+            byte[] data = screenshot.getScreenshotAs(OutputType.BYTES);
+            // itt történik meg az allure screenshot létrehozása
+            Allure.addAttachment("Hiba", new ByteArrayInputStream(data));
+        }
+    };
 
     @Test
     @Feature("Check URL")
