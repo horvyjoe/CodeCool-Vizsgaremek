@@ -56,6 +56,7 @@ class RegistrationAndLoginPageTest {
     @DisplayName("Switch to 'Register' tab")
     void switchToRegisterTabTest () {
         registrationAndLoginPage.clickRegisterTab();
+        shootScreenshot("Page status");
         Assertions.assertTrue(registrationAndLoginPage.validateRegisterWindow());
     }
 
@@ -73,6 +74,7 @@ class RegistrationAndLoginPageTest {
         String description = "John Doe is back";
         registrationAndLoginPage.clickRegisterTab();
         registrationAndLoginPage.performRegistration(username, password, email, description);
+        shootScreenshot("Page status");
 
         Assertions.assertTrue(registrationAndLoginPage.verifyRegistrationIsSuccessful());
     }
@@ -87,6 +89,7 @@ class RegistrationAndLoginPageTest {
     void registerWithEmptyCredentialsTest () {
         registrationAndLoginPage.clickRegisterTab();
         registrationAndLoginPage.clickRegisterButton();
+        shootScreenshot("Page status");
 
         Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
     }
@@ -105,6 +108,7 @@ class RegistrationAndLoginPageTest {
         String description = "John Doe is back";
         registrationAndLoginPage.clickRegisterTab();
         registrationAndLoginPage.performRegistration(username, password, email, description);
+        shootScreenshot("Page status");
 
         Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
     }
@@ -148,6 +152,7 @@ class RegistrationAndLoginPageTest {
         registrationAndLoginPage.clickRegisterTab();
         registrationAndLoginPage.clickLoginTab();
 
+        shootScreenshot("Page status");
         Assertions.assertTrue(registrationAndLoginPage.verifyLoginWindow());
     }
 
@@ -160,6 +165,7 @@ class RegistrationAndLoginPageTest {
     @DisplayName("'Empty' credentials login")
     void emptyCredentialLoginTest () {
         registrationAndLoginPage.clickLoginButton();
+        shootScreenshot("Page status");
         Assertions.assertTrue(registrationAndLoginPage.verifyLoginFailed());
         Assertions.assertEquals(PagesUrl.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
     }
@@ -173,17 +179,19 @@ class RegistrationAndLoginPageTest {
     @DisplayName("'Built-in' credentials login ")
     void builtInCredentialLoginTest () {
         registrationAndLoginPage.performBuiltInLogin();
+        shootScreenshot("Page status");
         Assertions.assertEquals(PagesUrl.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
         Assertions.assertTrue(registrationAndLoginPage.verifyLoginSuccessful());
     }
 
     @AfterEach
 
+    void tearDown() {
+        driver.quit();
+    }
+
     // Shoot screenshot
     protected void shootScreenshot(String title){
         Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
-    }
-    void tearDown() {
-        driver.quit();
     }
 }
