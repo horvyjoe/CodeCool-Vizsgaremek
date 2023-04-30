@@ -1,13 +1,20 @@
 package pages;
 
+import com.codecool.vizsgaremek.CsvActions;
 import com.codecool.vizsgaremek.enums.PagesUrl;
 import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
+import org.junit.Rule;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.TestWatcher;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
+import java.io.ByteArrayInputStream;
 
 
 @Epic("'-Register' and '-Login' functions - These tests covers the validation of features accessible directly from https://lennertamas.github.io/roxo/index.html url. Also verifies the url is correct.")
@@ -15,6 +22,18 @@ class RegistrationAndLoginPageTest {
     private WebDriver driver;
     private RegistrationAndLoginPage registrationAndLoginPage;
     private TermsAndConditions termsAndConditions;
+
+    @Rule
+    public TestWatcher watcher = new TestWatcher() {
+
+        protected void failed(Throwable e, Description description) {
+            // teszthiba esetén rögzítünk egy képernyőképet
+            TakesScreenshot screenshot = (TakesScreenshot) driver;
+            byte[] data = screenshot.getScreenshotAs(OutputType.BYTES);
+            // itt történik meg az allure screenshot létrehozása
+            Allure.addAttachment("Bug", new ByteArrayInputStream(data));
+        }
+    };
 
     @BeforeAll
     static void beforeAll() {
@@ -104,6 +123,22 @@ class RegistrationAndLoginPageTest {
         Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
     }
 
+    /*@Test
+    @Feature("'Registration' function")
+    @Tag("REG006")
+    @Description("Multiply user register - Reading valid registration credentials from a file, multiply users can be registered.")
+    @Story("Multiply user register - User registers multiply accounts from credentials stored in a file.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Multiply user register")
+    void registerMultipleUsersTest () {
+        registrationAndLoginPage.clickRegisterTab();
+        CsvActions csvActions = new CsvActions();
+        csvActions.registerUsersFromCSV("testData/users.csv");
+
+
+        Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
+    }*/
+
     // Login tests
     @Test
     @Feature("'Login' function")
@@ -140,19 +175,21 @@ class RegistrationAndLoginPageTest {
     void emptyCredentialLoginTest () {
         registrationAndLoginPage.clickLoginButton();
         Assertions.assertTrue(registrationAndLoginPage.verifyLoginFailed());
+        Assertions.assertEquals(PagesUrl.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
+
     }
 
     @Test
     @Feature("'Login' function")
     @Tag("LOG004")
-    @Description("Built-in credentials login  - validating  user login is possible with built-in login credentials")
+    @Description("Built-in credentials login - validating user login is possible with built-in login credentials")
     @Story("Built-in credentials login - User logs in with built-in login credentials.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("'Built-in' credentials login ")
     void builtInCredentialLoginTest () {
-        registrationAndLoginPage.performLogin();
-        Assertions.assertFalse(registrationAndLoginPage.verifyLoginFailed());
-        Assertions.assertTrue(registrationAndLoginPage.verifyUserProfileIsVisible());
+        registrationAndLoginPage.performBuiltInLogin();
+        Assertions.assertEquals(PagesUrl.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertTrue(registrationAndLoginPage.verifyLoginSuccessful());
     }
 
 
