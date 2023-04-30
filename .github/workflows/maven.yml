@@ -41,6 +41,9 @@ jobs:
       with:
         ref: gh-pages
         path: gh-pages
+    - name: Generate screenshot on test failure
+      run: mvn -B allure:capture-screen
+      if: ${{ failure() }}
     - name: Test marketplace action
       uses: simple-elf/allure-report-action@master
       if: always()
