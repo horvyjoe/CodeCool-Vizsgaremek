@@ -2,9 +2,7 @@ package pages;
 
 import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.enums.PagesUrl;
-import com.codecool.vizsgaremek.pages.LandingPage;
 import com.codecool.vizsgaremek.pages.ProfilePage;
-import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
@@ -14,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 public class ProfilePageTest {
 
         private WebDriver driver;
-        private RegistrationAndLoginPage registrationAndLoginPage;
+        //private RegistrationAndLoginPage registrationAndLoginPage;
         private TermsAndConditions termsAndConditions;
         private ProfilePage profilePage;
 
