@@ -21,6 +21,7 @@ public class WebDriverFactory {
         options.addArguments("no-sandbox");
         options.addArguments("headless");
 
+
         return new ChromeDriver(options);
     }
 }
