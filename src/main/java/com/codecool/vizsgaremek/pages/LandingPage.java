@@ -16,6 +16,7 @@ public class LandingPage extends Page {
     private static final By BUTTON_ABOUT_PAGE = By.xpath("//a[text()='About']");
     private static final By BUTTON_GET_IN_TOUCH = By.xpath("//*[@data-text='Get in touch']");
     private static final By BUTTON_LOGOUT = By.xpath("//*[@onclick='logout()']");
+    private static final By BUTTON_BLOG = By.xpath("//*[@class='nav-item']//*[text()='Blog']");
 
     public void clickHomeButton() {
         findElementOnPage(BUTTON_HOME).click();
@@ -48,6 +49,9 @@ public class LandingPage extends Page {
 
     public void clickProfileButton() {
         findElementOnPage(BUTTON_PROFILE).click();
+    }
+    public void clickBlogButton() {
+        findElementOnPage(BUTTON_BLOG).click();
     }
 
 }

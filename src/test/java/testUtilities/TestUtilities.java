@@ -1,19 +1,19 @@
 package testUtilities;
 
+import io.qameta.allure.Allure;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.ByteArrayInputStream;
+
 public class TestUtilities {
+    protected WebDriver driver;
 
-   public void navigateToPreviousPage() {
-       WebDriver driver = new ChromeDriver();
-
-      // Visszanavigálás előző oldalra
-       driver.navigate().back();
-
-       // WebDriver leállítása
-       driver.quit();
-   }
+    protected void shootScreenshot(String title){
+        Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+    }
 }
 
 

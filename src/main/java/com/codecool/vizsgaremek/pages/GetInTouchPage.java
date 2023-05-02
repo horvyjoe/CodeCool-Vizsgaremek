@@ -34,8 +34,8 @@ public class GetInTouchPage extends Page{
         return findElementOnPage(TEXT_THERE_WAS_A_PROBLEM).isDisplayed();
     }
 
-
-
-
+    public String verifyMessageSentText() {
+        return findElementOnPage(TEXT_THERE_WAS_A_PROBLEM).getText();
+    }
 
 }

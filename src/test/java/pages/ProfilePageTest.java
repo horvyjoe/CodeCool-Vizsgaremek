@@ -2,7 +2,9 @@ package pages;
 
 import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import com.codecool.vizsgaremek.pages.LandingPage;
 import com.codecool.vizsgaremek.pages.ProfilePage;
+import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
 import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
@@ -12,9 +14,10 @@ import org.openqa.selenium.WebDriver;
 public class ProfilePageTest {
 
         private WebDriver driver;
-        //private RegistrationAndLoginPage registrationAndLoginPage;
+        private RegistrationAndLoginPage registrationAndLoginPage;
         private TermsAndConditions termsAndConditions;
         private ProfilePage profilePage;
+        private LandingPage landingPage;
 
         @BeforeAll
         static void beforeAll() {
@@ -28,6 +31,8 @@ public class ProfilePageTest {
             profilePage.navigateTo();
             termsAndConditions = new TermsAndConditions(driver);
             termsAndConditions.clickAcceptTermsAndConditionsButton();
+
+
         }
 
         @Test
@@ -48,13 +53,54 @@ public class ProfilePageTest {
         @Story("Edit profile - User changes personal information.")
         @Severity(SeverityLevel.CRITICAL)
         @DisplayName("Edit profile")
-        void changeProfileTest() {
+        void editProfileTest() {
+            registrationAndLoginPage = new RegistrationAndLoginPage(driver);
+            registrationAndLoginPage.navigateTo();
+            registrationAndLoginPage.clickRegisterTab();
+            registrationAndLoginPage.performRegistration("Bandi", "dsgr34dsDFS", "bandiahegyrol@ksipal.hu", "Nagy a rendetlenség, ne nagyon nézzél szét!");
+            registrationAndLoginPage.clickLoginTab();
+
+            registrationAndLoginPage.performLogin("Bandi", "dsgr34dsDFS");
+            LandingPage landingPage = new LandingPage(driver);
+            landingPage.clickProfileButton();
+
+
             String name = "Lovasi Bandi";
             String bio = "Bandi from the mountain";
             String phoneNumber = "+36906616969";
             profilePage.changeProfile(name, bio, phoneNumber);
             Assertions.assertTrue(profilePage.verifyProfileChanged());
         }
+
+    @Test
+    @Feature("Delete profile")
+    @Tag("PROF002")
+    @Description("Delete profile - Validates deleting profile is successful.")
+    @Story("Delete profile - User deletes user's account.")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Delete profile")
+    void deleteProfileTest() {
+        registrationAndLoginPage = new RegistrationAndLoginPage(driver);
+        registrationAndLoginPage.navigateTo();
+        registrationAndLoginPage.clickRegisterTab();
+        String username = "Delete Me";
+        String password = "uDeleteItItsNotImportant";
+        String email = "stopDeletingMe@yudothis@disappear.com";
+        String description = "The end is coming!";
+        registrationAndLoginPage.performRegistration(username, password, email, description);
+        registrationAndLoginPage.clickLoginTab();
+
+        registrationAndLoginPage.performLogin(username, password);
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickProfileButton();
+        profilePage.clickDeleteAccount();
+        profilePage.clickConfirmDeleteAccount();
+
+        registrationAndLoginPage.performLogin(username, description);
+        Assertions.assertTrue(registrationAndLoginPage.verifyLoginFailed());
+
+    }
+
 
     @AfterEach
     void tearDown() {

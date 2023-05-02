@@ -6,12 +6,17 @@ import com.codecool.vizsgaremek.WebDriverFactory;
 import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
+import org.assertj.core.api.SoftAssertions;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
-import java.io.ByteArrayInputStream;
+import java.io.*;
+import java.util.Map;
 
 
 @Epic("'-Register' and '-Login' functions - These tests covers the validation of features accessible directly from https://lennertamas.github.io/roxo/index.html url. Also verifies the url is correct.")
@@ -113,21 +118,35 @@ class RegistrationAndLoginPageTest {
         Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
     }
 
-    /*@Test
+    @Test
     @Feature("'Registration' function")
     @Tag("REG006")
-    @Description("Multiply user register - Reading valid registration credentials from a file, multiply users can be registered.")
-    @Story("Multiply user register - User registers multiply accounts from credentials stored in a file.")
+    @Description("Multiple user register - Reading valid registration credentials from a file, multiple users can be registered.")
+    @Story("Multiple user register - User registers multiple accounts from credentials stored in a file.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Multiply user register")
-    void registerMultipleUsersTest () {
+    @DisplayName("Multiple user register")
+    void registerMultipleUsersTest () throws IOException, ParseException {
+
         registrationAndLoginPage.clickRegisterTab();
-        CsvActions csvActions = new CsvActions();
-        csvActions.registerUsersFromCSV("testData/users.csv");
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(new FileReader("testData/users.json"));
+        JSONArray jsonArray = (JSONArray) obj;
+        SoftAssertions softAssertions = new SoftAssertions();
+        for(Object object : jsonArray) {
+            JSONObject users = (JSONObject) object;
+            String username = (String) users.get("username");
+            String password = (String) users.get("password");
+            String email = (String) users.get("email");
+            String description = (String) users.get("description");
 
-
-        Assertions.assertFalse(registrationAndLoginPage.verifyRegistrationIsSuccessful());
-    }*/
+            registrationAndLoginPage.performRegistration(username, password, email, description);
+            softAssertions.assertThat(registrationAndLoginPage.verifyRegistrationIsSuccessful())
+                    .as("Registration by: " + username);
+            driver.navigate().refresh();
+            registrationAndLoginPage.clickRegisterTab();
+        }
+        softAssertions.assertAll();
+     }
 
     // Login tests
     @Test

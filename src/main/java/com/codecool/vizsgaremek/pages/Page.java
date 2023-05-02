@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.time.Duration;
+import java.util.List;
 
 abstract class Page {
 
@@ -43,6 +44,9 @@ abstract class Page {
 
     public final WebElement findElementOnPage(By locator) {
         return driver.findElement(locator);
+    }
+    public final List<WebElement> findElementsOnPage(By locator) {
+        return driver.findElements(locator);
     }
 
     public void AcceptAlert() {

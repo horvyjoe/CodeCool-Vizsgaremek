@@ -16,6 +16,7 @@ public class ProfilePage extends Page{
     private static final By FIELD_PHONE_NUMBER = By.id("phone-number");
     private static final By BUTTON_SAVE_PROFILE = By.xpath("//*[@onclick='editUser()']");
     private static final By BUTTON_DELETE_ACCOUNT = By.xpath("//*[@onclick='showRealDeleteAccBtn()']");
+    private static final By BUTTON_DELETE_ACCOUNT_CONFIRM = By.id("delete-account-btn");
     private static final By TEXT_PROFILE_EDITED = By.id("edit-alert");
 
 
@@ -27,7 +28,15 @@ public class ProfilePage extends Page{
     }
 
     public boolean verifyProfileChanged() {
-        return findElementOnPage(TEXT_PROFILE_EDITED).isDisplayed();
+        return findElementOnPage(TEXT_PROFILE_EDITED).getText().equals("Profile Edited!");
+    }
+
+    public void clickDeleteAccount(){
+        findElementOnPage(BUTTON_DELETE_ACCOUNT).click();
+    }
+
+    public void clickConfirmDeleteAccount(){
+        findElementOnPage(BUTTON_DELETE_ACCOUNT_CONFIRM).click();
     }
 
 }

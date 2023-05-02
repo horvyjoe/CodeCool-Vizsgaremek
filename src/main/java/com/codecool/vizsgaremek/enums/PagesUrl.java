@@ -6,7 +6,8 @@ public enum PagesUrl {
     LANDING_PAGE("https://lennertamas.github.io/roxo/landing.html"),
     ABOUT_PAGE("https://lennertamas.github.io/roxo/about/"),
     GET_IN_TOUCH("https://lennertamas.github.io/roxo/contact/"),
-    PROFILE_PAGE("https://lennertamas.github.io/roxo/profile");
+    PROFILE_PAGE("https://lennertamas.github.io/roxo/profile"),
+    BLOG_PAGE("https://lennertamas.github.io/roxo/blog/");
 
     private final String url;
 
