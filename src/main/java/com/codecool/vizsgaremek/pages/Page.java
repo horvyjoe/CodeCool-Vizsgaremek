@@ -56,4 +56,6 @@ abstract class Page {
     public String GetAlertText() {
         return driver.switchTo().alert().getText();
     }
+
+
 }

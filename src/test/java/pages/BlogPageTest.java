@@ -53,4 +53,9 @@ public class BlogPageTest {
         };
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @AfterEach
+    void tearDown() {
+        driver.quit();
+    }
 }

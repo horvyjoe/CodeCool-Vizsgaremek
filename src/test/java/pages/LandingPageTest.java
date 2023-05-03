@@ -8,6 +8,7 @@ import com.codecool.vizsgaremek.pages.TermsAndConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +37,6 @@ public class LandingPageTest {
         termsAndConditions.clickAcceptTermsAndConditionsButton();
 
     }
-
 
     @Test
     @Description("This test checks if with existing username and password the login is possible.")
@@ -103,13 +103,16 @@ public class LandingPageTest {
     @Story("Logout - User clicks on 'Logout' button.")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Logout and press 'back'")
-    void logoutAndPressBackTest () {
+    void logoutAndPressBackTest() {
         registrationAndLoginPage.performBuiltInLogin();
         landingPage.clickLogoutButton();
-        driver.navigate().back();
+        //driver.navigate().back();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.history.go(-1)");
 
         Assertions.assertFalse(landingPage.verifyLogoutButtonIsDisplayed());
         shootScreenshot("Page status");
+
     }
 
     @AfterEach

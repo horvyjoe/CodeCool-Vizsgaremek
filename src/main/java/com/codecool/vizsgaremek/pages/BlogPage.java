@@ -34,5 +34,9 @@ public class BlogPage extends Page{
         return collectBlogTitles.toArray(new String[0]);
     }
 
+    public void saveBlogPictures() {
+
+    }
+
 
 }

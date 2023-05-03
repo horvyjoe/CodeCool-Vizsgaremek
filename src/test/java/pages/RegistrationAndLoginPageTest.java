@@ -15,12 +15,14 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import testUtilities.TestUtilities;
+
 import java.io.*;
 import java.util.Map;
 
 
 @Epic("'-Register' and '-Login' functions - These tests covers the validation of features accessible directly from https://lennertamas.github.io/roxo/index.html url. Also verifies the url is correct.")
-class RegistrationAndLoginPageTest {
+class RegistrationAndLoginPageTest extends TestUtilities {
     private WebDriver driver;
     private RegistrationAndLoginPage registrationAndLoginPage;
     private TermsAndConditions termsAndConditions;

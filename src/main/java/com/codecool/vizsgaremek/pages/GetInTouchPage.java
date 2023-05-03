@@ -30,7 +30,7 @@ public class GetInTouchPage extends Page{
         findElementOnPage(BUTTON_SEND_MESSAGE).click();
     }
 
-    public boolean verifyMessageSent() {
+    public boolean verifyMessageSentError() {
         return findElementOnPage(TEXT_THERE_WAS_A_PROBLEM).isDisplayed();
     }
 

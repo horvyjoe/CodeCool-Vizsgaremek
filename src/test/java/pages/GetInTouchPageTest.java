@@ -16,10 +16,8 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import testUtilities.TestUtilities;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -73,14 +71,14 @@ public class GetInTouchPageTest {
         String expectedAlertText = "Message sent!";
         Assertions.assertEquals(expectedAlertText, actualAlertText);
         Thread.sleep(5000);
-        Assertions.assertFalse(getInTouchPage.verifyMessageSent());
+        Assertions.assertFalse(getInTouchPage.verifyMessageSentError());
     }
 
     @Test
     @Description("The test verifies the 'Get in touch' menu's send message function.")
     @Story("On Get in touch page sending a message must be possible.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Sending message")
+    @DisplayName("Send multiple messages")
     void sendMultipleMessage() throws InterruptedException, IOException, ParseException {
         landingPage.clickGetInTouchButton();
         JSONParser parser = new JSONParser();
@@ -111,6 +109,7 @@ public class GetInTouchPageTest {
         }
         softAssertions.assertAll();
     }
+
 
     @AfterEach
     void tearDown() {

@@ -14,12 +14,13 @@ public class WebDriverFactory {
         new ChromeOptions();
 
         options.addArguments("window-size=1280,800");
+        //options.addArguments("start-maximized");
         options.addArguments("incognito");
         options.addArguments("disable-extensions");
         options.addArguments("remote-allow-origins=*");
         options.addArguments("disable-dev-shm-usage");
         options.addArguments("no-sandbox");
-        options.addArguments("headless");
+        options.addArguments("headless=new");
 
         return new ChromeDriver(options);
     }
