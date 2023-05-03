@@ -91,7 +91,7 @@ public class TermsAndConditionsTest {
     void verifyTermsAndConditionsTextTest() throws IOException {
         Assertions.assertTrue(termsAndConditions.validateTermsAndConditionsPopupIsDisplayed());
         String actual = termsAndConditions.getTextTermsAndConditions().replaceAll("\\r\\n", "\n");
-        String expected = new String(Files.readAllBytes(Paths.get("testData/termsAndConditions.txt"))).replaceAll("\\r\\n", "\n");
+        String expected = new String(Files.readAllBytes(Paths.get("src/test/resources/testData/termsAndConditions.txt"))).replaceAll("\\r\\n", "\n");
         Assertions.assertEquals(expected, actual);
     }
 

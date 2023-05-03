@@ -82,7 +82,7 @@ public class GetInTouchPageTest {
     void sendMultipleMessage() throws InterruptedException, IOException, ParseException {
         landingPage.clickGetInTouchButton();
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader("testData/sendMessage.json"));
+        Object obj = parser.parse(new FileReader("src/test/resources/testData/sendMessage.json"));
         JSONArray jsonArray = (JSONArray) obj;
 
         SoftAssertions softAssertions = new SoftAssertions();

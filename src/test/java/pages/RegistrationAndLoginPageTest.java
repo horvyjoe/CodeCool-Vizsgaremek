@@ -131,7 +131,7 @@ class RegistrationAndLoginPageTest extends TestUtilities {
 
         registrationAndLoginPage.clickRegisterTab();
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader("testData/users.json"));
+        Object obj = parser.parse(new FileReader("src/test/resources/testData/users.json"));
         JSONArray jsonArray = (JSONArray) obj;
         SoftAssertions softAssertions = new SoftAssertions();
         for(Object object : jsonArray) {
