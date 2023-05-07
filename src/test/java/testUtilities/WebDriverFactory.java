@@ -1,4 +1,4 @@
-package com.codecool.vizsgaremek;
+package testUtilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

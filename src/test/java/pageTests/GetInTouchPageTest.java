@@ -1,6 +1,7 @@
-package pages;
+package pageTests;
 
-import com.codecool.vizsgaremek.WebDriverFactory;
+import testUtilities.TestUtilities;
+import testUtilities.WebDriverFactory;
 import com.codecool.vizsgaremek.pages.GetInTouchPage;
 import com.codecool.vizsgaremek.pages.LandingPage;
 import com.codecool.vizsgaremek.pages.RegistrationAndLoginPage;
@@ -21,32 +22,14 @@ import java.io.ByteArrayInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class GetInTouchPageTest {
-
-    public WebDriver driver;
-    private GetInTouchPage getInTouchPage;
-    private LandingPage landingPage;
-    private RegistrationAndLoginPage registrationAndLoginPage;
-    private TermsAndConditions termsAndConditions;
-
-    @BeforeAll
-    static void beforeAll() {
-        WebDriverManager.chromedriver().setup();
-    }
-
+public class GetInTouchPageTest extends TestUtilities {
     @BeforeEach
-    void setUp() {
-        driver = WebDriverFactory.getWebDriver();
-        getInTouchPage = new GetInTouchPage(driver);
-        registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        landingPage = new LandingPage(driver);
-        termsAndConditions = new TermsAndConditions(driver);
+    void setUpPreconditions() {
 
-        registrationAndLoginPage.navigateTo();
-        termsAndConditions.clickAcceptTermsAndConditionsButton();
-        registrationAndLoginPage.performBuiltInLogin();
-        getInTouchPage.navigateTo();
-
+        getRegistrationAndLoginPage().navigateTo();
+        getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
+        getRegistrationAndLoginPage().performBuiltInLogin();
+        getGetInTouchPage().navigateTo();
     }
 
     @Test
@@ -55,8 +38,8 @@ public class GetInTouchPageTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Sending message")
     void sendMessage() throws InterruptedException {
-        landingPage.clickGetInTouchButton();
-        getInTouchPage.performSendMessage(
+        getLandingPage().clickGetInTouchButton();
+        getGetInTouchPage().performSendMessage(
                 "András",
                 "Lovasi",
                 "bandiAHegyrol@kispal.hu",
@@ -66,21 +49,21 @@ public class GetInTouchPageTest {
                         "Aki az est gyôztese lesz - Jó - mondok\n" +
                         "- Csak én még egy kis maradékot meginnék\n" +
                         "- Látod itt elôttem ezt");
-        String actualAlertText = getInTouchPage.GetAlertText();
-        getInTouchPage.AcceptAlert();
+        String actualAlertText = getGetInTouchPage().GetAlertText();
+        getGetInTouchPage().AcceptAlert();
         String expectedAlertText = "Message sent!";
         Assertions.assertEquals(expectedAlertText, actualAlertText);
         Thread.sleep(5000);
-        Assertions.assertFalse(getInTouchPage.verifyMessageSentError());
+        Assertions.assertFalse(getGetInTouchPage().verifyMessageSentError());
     }
 
     @Test
     @Description("The test verifies the 'Get in touch' menu's send message function.")
     @Story("On Get in touch page sending a message must be possible.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Send multiple messages")
+    @DisplayName("Send multiple messages from file")
     void sendMultipleMessage() throws InterruptedException, IOException, ParseException {
-        landingPage.clickGetInTouchButton();
+        getLandingPage().clickGetInTouchButton();
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(new FileReader("src/test/resources/testData/sendMessage.json"));
         JSONArray jsonArray = (JSONArray) obj;
@@ -95,12 +78,12 @@ public class GetInTouchPageTest {
             String projectType = (String) users.get("project type");
             String aboutProject = (String) users.get("about project");
 
-            getInTouchPage.performSendMessage(firstname, lastname, email, projectType, aboutProject);
-            getInTouchPage.AcceptAlert();
+            getGetInTouchPage().performSendMessage(firstname, lastname, email, projectType, aboutProject);
+            getGetInTouchPage().AcceptAlert();
             String expectedAlertText = "Message sent!";
             Thread.sleep(1500);
 
-            softAssertions.assertThat(getInTouchPage.verifyMessageSentText())
+            softAssertions.assertThat(getGetInTouchPage().verifyMessageSentText())
                     .as("Message sent by" + firstname +" "+ lastname )
                     .isEqualTo(expectedAlertText);
             String shootScreenshotName = "Message sent by: " + firstname + lastname;
@@ -108,15 +91,5 @@ public class GetInTouchPageTest {
             driver.navigate().refresh();
         }
         softAssertions.assertAll();
-    }
-
-
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-    }
-
-    protected void shootScreenshot(String title){
-        Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 }

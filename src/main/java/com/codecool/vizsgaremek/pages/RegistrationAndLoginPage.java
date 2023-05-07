@@ -57,6 +57,10 @@ public class RegistrationAndLoginPage extends Page{
        return findElementOnPage(TEXT_USER_REGISTERED).isDisplayed();
     }
 
+    public boolean verifyRegistrationFailed(){
+        return findElementOnPage(TEXT_USER_REGISTERED).isDisplayed();
+    }
+
     public void clickRegisterButton() {
         findElementOnPage(BUTTON_REGISTER).click();
     }

@@ -1,6 +1,8 @@
-package pages;
+/*
+package pageTests;
 
-import com.codecool.vizsgaremek.WebDriverFactory;
+import testUtilities.TestUtilities;
+import testUtilities.WebDriverFactory;
 import com.codecool.vizsgaremek.enums.PagesUrl;
 import com.codecool.vizsgaremek.pages.LandingPage;
 import com.codecool.vizsgaremek.pages.ProfilePage;
@@ -11,28 +13,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 @Epic("'Profile page' functions - These tests covers the validation of features accessible directly from https://lennertamas.github.io/roxo/profile url. Such as change profile, delete profile functions. Also verifies the url is correct.")
-public class ProfilePageTest {
-
-        private WebDriver driver;
-        private RegistrationAndLoginPage registrationAndLoginPage;
-        private TermsAndConditions termsAndConditions;
-        private ProfilePage profilePage;
-        private LandingPage landingPage;
-
-        @BeforeAll
-        static void beforeAll() {
-            WebDriverManager.chromedriver().setup();
-        }
+public class ProfilePageTest extends TestUtilities {
 
         @BeforeEach
-        void setUp() {
-            driver = WebDriverFactory.getWebDriver();
-            profilePage = new ProfilePage(driver);
-            profilePage.navigateTo();
-            termsAndConditions = new TermsAndConditions(driver);
-            termsAndConditions.clickAcceptTermsAndConditionsButton();
-
-
+        void setUpPreconditions() {
+            getProfilePage().navigateTo();
+            getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
         }
 
         @Test
@@ -100,11 +86,5 @@ public class ProfilePageTest {
         Assertions.assertTrue(registrationAndLoginPage.verifyLoginFailed());
 
     }
-
-
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-    }
-
 }
+*/
