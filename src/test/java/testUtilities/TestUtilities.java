@@ -1,10 +1,7 @@
 package testUtilities;
 import com.codecool.vizsgaremek.pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Allure;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -92,6 +89,7 @@ public abstract class TestUtilities {
             driver.quit();
         }
 
+        @Step("Shoot screenshot")
         protected void shootScreenshot(String title) {
             Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         }

@@ -2,6 +2,8 @@ package functionTests;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +14,8 @@ import testUtilities.TestUtilities;
 
 import java.io.ByteArrayInputStream;
 
+@Epic("'Listing data' functions - These tests covers the verification of data listing functions.")
+@Feature("Listing data' functions")
 public class ListingDataTest extends TestUtilities {
     @BeforeEach
     void setUpAboutPage() {
@@ -24,18 +28,13 @@ public class ListingDataTest extends TestUtilities {
     @DisplayName("List expertises")
     void listExpertises() {
         getAboutPage().navigateTo();
-        Assertions.assertEquals(PagesUrl.ABOUT_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertEquals(PagesUrl.ABOUT_PAGE.getUrl(), driver.getCurrentUrl(),"Failed to navigate to the correct page.");
 
         String[] expected = {"Customer Experience Design", "Digital Products", "Development", "Campaign & Content",
                 "Employer Branding", "Animation & Motion Graphics", "Packaging & Product Design",
                 "Retail & Spacial", "Print & Editorial Design", "Concept/Text", "Information Design"};
 
         shootScreenshot("List expertises");
-        Assertions.assertArrayEquals(expected, getAboutPage().listExpertises());
-    }
-
-    // Shoot screenshot
-    protected void shootScreenshot(String title){
-        Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        Assertions.assertArrayEquals(expected, getAboutPage().listExpertises(),"The actual expertises don't match with the expected");
     }
 }

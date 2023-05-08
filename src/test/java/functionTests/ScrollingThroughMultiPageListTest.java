@@ -33,7 +33,7 @@ public class ScrollingThroughMultiPageListTest extends TestUtilities {
                 "Pt Chooses Classic Blue for Its Colour of the Year 2020",
                 "The 10 Biggest Product Stories of 2019"
         };
-        Assertions.assertArrayEquals(expected, actual);
+        Assertions.assertArrayEquals(expected, actual, "Titles of blog pages don't match expected titles. Either the titles are wrong, or not every titles are collected.");
     }
 
 }

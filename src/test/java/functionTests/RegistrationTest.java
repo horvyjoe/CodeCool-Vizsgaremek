@@ -34,14 +34,19 @@ public class RegistrationTest extends TestUtilities {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Correct credentials registration")
     void registerNewUserTest () {
+
+        //Testdata
         String username = "John";
         String password = "Doe123";
         String email = "johndoe@gmail.com";
         String description = "John Doe is back";
+
+        //Test steps
         getRegistrationAndLoginPage().clickRegisterTab();
         getRegistrationAndLoginPage().performRegistration(username, password, email, description);
         shootScreenshot("Page status after correct registration with credentials");
 
+        //Test result
         Assertions.assertTrue(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful(),"Registration failed with correct registration credentials");
     }
 
@@ -66,15 +71,18 @@ public class RegistrationTest extends TestUtilities {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Invalid email credential registration")
     void registerWithInvalidEmailTest () {
+        //Test data
         String username = "johnDoe";
         String password = "Doe123";
         String email = "j@hnd@e@gmail+c@m";
         String description = "John Doe is back";
+
+        //Test steps
         getRegistrationAndLoginPage().clickRegisterTab();
         getRegistrationAndLoginPage().performRegistration(username, password, email, description);
         shootScreenshot("Page status after invalid email credential registration");
 
+        //Test results
         Assertions.assertFalse(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful(),"Error: Successfully registered with the following 'INVALID' email address: "+email);
     }
-
 }

@@ -4,9 +4,8 @@ import com.codecool.vizsgaremek.enums.PagesUrl;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
-@Feature("'Login' function")
 @Epic("'Login' functions - These tests covers the verifications of login related features and page behaviours.")
-
+@Feature("'Login' function")
 public class LoginTest extends TestUtilities {
     @BeforeEach
     void setupPage(){
@@ -14,7 +13,6 @@ public class LoginTest extends TestUtilities {
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
     }
 
-    // Login tests
     @Test
     @Feature("'Login' function")
     @Tag("LIN001")

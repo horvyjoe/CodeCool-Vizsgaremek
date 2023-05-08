@@ -1,3 +1,4 @@
+/*
 package com.codecool.vizsgaremek.utilities;
 
 import java.io.File;
@@ -29,3 +30,4 @@ public class Utilities {
     }
 
 }
+*/

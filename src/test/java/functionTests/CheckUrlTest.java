@@ -8,9 +8,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import testUtilities.TestUtilities;
 
+@Epic("'Checking URL' functions - These tests covers the verification of the correct URL is loaded after navigation to the requested page.")
+@Feature("Check URL")
 public class CheckUrlTest extends TestUtilities {
     @Test
-    @Feature("Check URL")
     @Tag("CHURL01")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/index.html URL.")
@@ -23,7 +24,6 @@ public class CheckUrlTest extends TestUtilities {
     }
 
     @Test
-    @Feature("Check URL")
     @Tag("CHURL02")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/index.html URL.")
@@ -36,7 +36,6 @@ public class CheckUrlTest extends TestUtilities {
     }
 
     @Test
-    @Feature("Check URL")
     @Tag("CHURL03")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/about/ URL.")
@@ -49,7 +48,6 @@ public class CheckUrlTest extends TestUtilities {
     }
 
     @Test
-    @Feature("Check URL")
     @Tag("CHURL04")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/blog/ URL.")
@@ -61,7 +59,6 @@ public class CheckUrlTest extends TestUtilities {
         Assertions.assertEquals(PagesUrl.BLOG_PAGE.getUrl(), driver.getCurrentUrl(),"The actual URL: " + driver.getCurrentUrl() + " doesn't match the expected URL (Expected: 'Blog page').");
     }
     @Test
-    @Feature("Check URL")
     @Tag("CHURL05")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/contact/ URL.")
@@ -74,7 +71,6 @@ public class CheckUrlTest extends TestUtilities {
     }
 
     @Test
-    @Feature("Check URL")
     @Tag("CHURL06")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/landing.html URL.")
@@ -87,7 +83,6 @@ public class CheckUrlTest extends TestUtilities {
     }
 
     @Test
-    @Feature("Check URL")
     @Tag("CHURL07")
     @Description("Validates navigating to the given URL is successful.")
     @Story("URL check - User navigates to https://lennertamas.github.io/roxo/profile URL.")
@@ -98,5 +93,4 @@ public class CheckUrlTest extends TestUtilities {
         shootScreenshot("Page status after navigating to 'Profile page'");
         Assertions.assertEquals(PagesUrl.PROFILE_PAGE.getUrl(), driver.getCurrentUrl(),"The actual URL: " + driver.getCurrentUrl() + " doesn't match the expected URL (Expected: 'Profile page').");
     }
-
 }

@@ -1,9 +1,6 @@
 package functionTests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.assertj.core.api.SoftAssertions;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,7 +13,8 @@ import testUtilities.TestUtilities;
 
 import java.io.FileReader;
 import java.io.IOException;
-
+@Epic("'Repeated serial data entry from data source' functions - These tests covers the verification of the possibility to perform multiple inputs from data stored in a file.")
+@Feature("'Repeated serial data entry from data source' functions")
 public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
 
     @BeforeEach
@@ -29,7 +27,7 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
 
     @Test
     @Description("The test verifies the 'Get in touch' menu's send message function.")
-    @Story("On Get in touch page sending a message must be possible.")
+    @Story("On Get in touch page sending a message must be possible. User is using data stored in a file for repeated serial data entry")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Send multiple messages from file")
     void sendMultipleMessage() throws InterruptedException, IOException, ParseException {
@@ -54,9 +52,9 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
             Thread.sleep(1500);
 
             softAssertions.assertThat(getGetInTouchPage().verifyMessageSentText())
-                    .as("Message sent by" + firstname +" "+ lastname )
+                    .as("Error occurred when message sent by: " + firstname +" "+ lastname )
                     .isEqualTo(expectedAlertText);
-            String shootScreenshotName = "Message sent by: " + firstname + lastname;
+            String shootScreenshotName = "Message sent by: " + firstname +" "+ lastname;
             shootScreenshot(shootScreenshotName);
             driver.navigate().refresh();
         }

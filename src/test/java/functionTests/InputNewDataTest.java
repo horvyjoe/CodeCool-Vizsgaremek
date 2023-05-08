@@ -1,23 +1,14 @@
 package functionTests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
-import org.assertj.core.api.SoftAssertions;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import testUtilities.TestUtilities;
 
-import java.io.FileReader;
-import java.io.IOException;
-
+@Epic("'Input new data' functions - These tests covers the verification of inputting new data functions.")
+@Feature("'Input new data' functions")
 public class InputNewDataTest extends TestUtilities {
 
     @BeforeEach
@@ -32,7 +23,7 @@ public class InputNewDataTest extends TestUtilities {
     @Test
     @Description("The test verifies the 'Get in touch' menu's send message function.")
     @Story("On Get in touch page sending a message must be possible.")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.MINOR)
     @DisplayName("Sending message")
     void sendMessage() throws InterruptedException {
         getLandingPage().clickGetInTouchButton();
@@ -49,10 +40,8 @@ public class InputNewDataTest extends TestUtilities {
         String actualAlertText = getGetInTouchPage().GetAlertText();
         getGetInTouchPage().AcceptAlert();
         String expectedAlertText = "Message sent!";
-        Assertions.assertEquals(expectedAlertText, actualAlertText);
+        Assertions.assertEquals(expectedAlertText, actualAlertText,"Alert text doesn't confirm that message is successfully sent.");
         Thread.sleep(5000);
-        Assertions.assertFalse(getGetInTouchPage().verifyMessageSentError());
+        Assertions.assertFalse(getGetInTouchPage().verifyMessageSentError(),"'Message not sent' error is visible on the screen");
     }
-
-
 }
