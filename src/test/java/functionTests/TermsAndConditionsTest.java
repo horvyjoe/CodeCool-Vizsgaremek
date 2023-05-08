@@ -8,11 +8,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Epic("'Terms and conditions' functions - These tests covers the verification of 'Terms and conditions' functions.")
-@Feature("'Terms and conditions' functions")
 public class TermsAndConditionsTest extends TestUtilities {
 
     @BeforeEach
-    void setUpPreconditions() {
+    void setUpPreconditionSteps() {
         getRegistrationAndLoginPage().navigateTo();
     }
 
@@ -20,7 +19,7 @@ public class TermsAndConditionsTest extends TestUtilities {
     @Tag("TC002")
     @Description("Accept 'Terms and conditions'")
     @Story("Accept - Terms and conditions window is displayed and can be accepted by user.")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.TRIVIAL)
     @DisplayName("Accept 'Terms and conditions'")
     void clickAcceptTermsAndConditionsButtonTest() {
         Assertions.assertTrue(getTermsAndConditionsPage().validateTermsAndConditionsPopupIsDisplayed(),"Terms and conditions popup is NOT displayed!");
@@ -33,7 +32,7 @@ public class TermsAndConditionsTest extends TestUtilities {
     @Tag("TC003")
     @Description("Close 'Terms and conditions'")
     @Story("Close - Terms and conditions window is displayed and can be closed by user with button 'X'.")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.TRIVIAL)
     @DisplayName("Close 'Terms and conditions'")
     void clickCloseTermsAndConditionsButtonTest() {
         Assertions.assertTrue(getTermsAndConditionsPage().validateTermsAndConditionsPopupIsDisplayed(),"Terms and conditions popup is NOT displayed!");
@@ -46,7 +45,7 @@ public class TermsAndConditionsTest extends TestUtilities {
     @Tag("TC004")
     @Description("Click out of 'Terms and conditions' window")
     @Story("Click out - Terms and conditions window is displayed and user clicks out of the window. The window must remain visible.")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.MINOR)
     @DisplayName("Click out of 'Terms and conditions'")
     void clickOutsideTermsAndConditionsWindowTest() {
         Assertions.assertTrue(getTermsAndConditionsPage().validateTermsAndConditionsPopupIsDisplayed(),"Terms and conditions popup is NOT displayed!");

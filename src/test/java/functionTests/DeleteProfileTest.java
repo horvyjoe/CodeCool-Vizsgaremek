@@ -6,11 +6,10 @@ import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 
 @Epic("'Delete profile' functions - These tests covers the verification of 'deleting user profile' functions.")
-@Feature("'Terms and conditions' functions")
 public class DeleteProfileTest extends TestUtilities {
 
     @BeforeEach
-    void setUpPreconditions() {
+    void setUpPreconditionSteps() {
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
     }

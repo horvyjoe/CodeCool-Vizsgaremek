@@ -8,11 +8,10 @@ import org.junit.jupiter.api.Test;
 import testUtilities.TestUtilities;
 
 @Epic("'Input new data' functions - These tests covers the verification of inputting new data functions.")
-@Feature("'Input new data' functions")
 public class InputNewDataTest extends TestUtilities {
 
     @BeforeEach
-    void setUpPreconditions() {
+    void setUpPreconditionSteps() {
 
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
@@ -42,6 +41,7 @@ public class InputNewDataTest extends TestUtilities {
         String expectedAlertText = "Message sent!";
         Assertions.assertEquals(expectedAlertText, actualAlertText,"Alert text doesn't confirm that message is successfully sent.");
         Thread.sleep(5000);
+
         Assertions.assertFalse(getGetInTouchPage().verifyMessageSentError(),"'Message not sent' error is visible on the screen");
     }
 }

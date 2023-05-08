@@ -5,11 +5,10 @@ import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 
 @Epic("'Registration' functions - These tests covers the verifications of registration related features and page behaviours.")
-@Feature("'Registration' function")
 public class RegistrationTest extends TestUtilities {
 
     @BeforeEach
-    void setupPage(){
+    void setUpPreconditionSteps(){
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
     }
@@ -22,8 +21,8 @@ public class RegistrationTest extends TestUtilities {
     @DisplayName("Switch to 'Register' tab")
     void switchToRegisterTabTest () {
         getRegistrationAndLoginPage().clickRegisterTab();
-        shootScreenshot("Page status after 'Register' tab is clicked");
 
+        shootScreenshot("Page status after 'Register' tab is clicked");
         Assertions.assertTrue(getRegistrationAndLoginPage().validateRegisterWindow(),"Failed switch to 'Register' tab");
     }
 
@@ -44,7 +43,9 @@ public class RegistrationTest extends TestUtilities {
         //Test steps
         getRegistrationAndLoginPage().clickRegisterTab();
         getRegistrationAndLoginPage().performRegistration(username, password, email, description);
-        shootScreenshot("Page status after correct registration with credentials");
+
+        //Shoot screenshot for Allure report
+        shootScreenshot("Page status after registration with correct credentials");
 
         //Test result
         Assertions.assertTrue(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful(),"Registration failed with correct registration credentials");
@@ -59,8 +60,8 @@ public class RegistrationTest extends TestUtilities {
     void registerWithEmptyCredentialsTest () {
         getRegistrationAndLoginPage().clickRegisterTab();
         getRegistrationAndLoginPage().clickRegisterButton();
-        shootScreenshot("Page status after empty credentials registration");
 
+        shootScreenshot("Page status after empty credentials registration");
         Assertions.assertFalse(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful(),"Error! Successfully registered with 'EMPTY' credentials ");
     }
 
@@ -80,6 +81,8 @@ public class RegistrationTest extends TestUtilities {
         //Test steps
         getRegistrationAndLoginPage().clickRegisterTab();
         getRegistrationAndLoginPage().performRegistration(username, password, email, description);
+
+        //Shoot screenshot for Allure report
         shootScreenshot("Page status after invalid email credential registration");
 
         //Test results

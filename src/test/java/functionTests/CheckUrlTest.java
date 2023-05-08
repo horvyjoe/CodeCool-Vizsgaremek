@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import testUtilities.TestUtilities;
 
 @Epic("'Checking URL' functions - These tests covers the verification of the correct URL is loaded after navigation to the requested page.")
-@Feature("Check URL")
 public class CheckUrlTest extends TestUtilities {
     @Test
     @Tag("CHURL01")

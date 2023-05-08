@@ -5,10 +5,9 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 @Epic("'Login' functions - These tests covers the verifications of login related features and page behaviours.")
-@Feature("'Login' function")
 public class LoginTest extends TestUtilities {
     @BeforeEach
-    void setupPage(){
+    void setUpPreconditionSteps(){
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
     }

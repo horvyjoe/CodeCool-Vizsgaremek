@@ -7,12 +7,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import testUtilities.TestUtilities;
 @Epic("'Scrolling through multi pages' functions - These tests covers the verification of scrolling through multiple pages.")
-@Feature("'Scrolling through multi pages' functions")
-
 public class ScrollingThroughMultiPageListTest extends TestUtilities {
 
     @BeforeEach
-    void setupPreconditions(){
+    void setUpPreconditionSteps(){
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
         getRegistrationAndLoginPage().performBuiltInLogin();
@@ -21,7 +19,7 @@ public class ScrollingThroughMultiPageListTest extends TestUtilities {
     @Test
     @Description("The test verifies the titles of all blog pages.")
     @Story("User is collecting the titles of every blog. The blogs can be found on multiple pages.")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.MINOR)
     @DisplayName("'Multi page scroll' - Collect blog titles ")
     void blogTitleCollectTest() {
         getLandingPage().clickBlogButton();
@@ -35,5 +33,4 @@ public class ScrollingThroughMultiPageListTest extends TestUtilities {
         };
         Assertions.assertArrayEquals(expected, actual, "Titles of blog pages don't match expected titles. Either the titles are wrong, or not every titles are collected.");
     }
-
 }

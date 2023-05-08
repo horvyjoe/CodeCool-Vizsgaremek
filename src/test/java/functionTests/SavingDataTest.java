@@ -10,10 +10,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Epic("'Saving data' functions - These tests covers the verification of saving data from pages.")
-@Feature("'Saving data' functions")
 public class SavingDataTest extends TestUtilities {
     @BeforeEach
-    void setUpPreconditions(){
+    void setUpPreconditionSteps(){
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
         getRegistrationAndLoginPage().performBuiltInLogin();
@@ -93,7 +92,6 @@ public class SavingDataTest extends TestUtilities {
         String newFileName = "src/test/resources/savedFiles/blogColourOfTheYear2020.txt";
         String colourOfTheYear2020Text = getBlogPage().getColourOfTheYear2020BlogText();
         writeTextToFile(colourOfTheYear2020Text, newFileName);
-
         String actualSavedText = Files.readString(Paths.get(newFileName));
 
         Assertions.assertEquals(getBlogPage().getColourOfTheYear2020BlogText(), actualSavedText,"Text of saved file is not identical to the text of the target blog page!");

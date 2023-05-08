@@ -22,23 +22,30 @@ public class LandingPage extends Page {
         findElementOnPage(BUTTON_HOME).click();
     }
 
-    public boolean verifyLogin(){
-        return findElementOnPage(BUTTON_PROFILE).isDisplayed();
-    }
-
     public boolean verifyHomeButtonNavigation() {
         return findElementOnPage(TEXT_H1).getText().equals("404");
+    }
+
+    public boolean verifyHomeButtonIsDisplayed(){
+        return findElementOnPage(BUTTON_HOME).isDisplayed();
     }
 
     public void clickAboutButton() {
         findElementOnPage(BUTTON_ABOUT_PAGE).click();
     }
 
+    public boolean verifyAboutButtonIsDisplayed(){
+        return findElementOnPage(BUTTON_ABOUT_PAGE).isDisplayed();
+    }
+
     public void clickGetInTouchButton() {
         findElementOnPage(BUTTON_GET_IN_TOUCH).click();
     }
+    public boolean verifyGetInTouchButtonIsDisplayed(){
+        return findElementOnPage(BUTTON_GET_IN_TOUCH).isDisplayed();
+    }
 
-    // Logout
+
     public void clickLogoutButton(){
         findElementOnPage(BUTTON_LOGOUT).click();
     }
@@ -46,6 +53,7 @@ public class LandingPage extends Page {
     public boolean verifyLogoutButtonIsDisplayed() {
         return findElementOnPage(BUTTON_LOGOUT).isDisplayed();
     }
+
 
     public void clickProfileButton() {
         findElementOnPage(BUTTON_PROFILE).click();

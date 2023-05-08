@@ -18,5 +18,4 @@ public enum PagesUrl {
     public String getUrl() {
         return url;
     }
-
 }

@@ -13,6 +13,8 @@ import java.io.ByteArrayInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import io.qameta.allure.Step;
+
 public abstract class TestUtilities {
 
         protected WebDriver driver;

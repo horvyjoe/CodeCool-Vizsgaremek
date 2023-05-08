@@ -76,15 +76,4 @@ public class BlogPage extends Page{
     public String getNovemberBlogText() {
         return findElementOnPage(TEXT_BLOG_NOVEMBER).getText();
     }
-
-
-    public static void main(String[] args){}
-
-
-
-    public void saveBlogPictures() {
-
-    }
-
-
 }

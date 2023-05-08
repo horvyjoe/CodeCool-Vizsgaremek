@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+
 public class AboutPage extends Page{
 
     public AboutPage(WebDriver driver) {
@@ -15,7 +16,7 @@ public class AboutPage extends Page{
 
     // Locators
     private static final By TEXT_TEAM_MEMBER = By.xpath("//*[@class='site-team-member-content']/h3");
-    private static final By TEXT_LIST_EXPERTISES = By.xpath("//*[@class='site-expertise-list']/li");
+    public static final By TEXT_LIST_EXPERTISES = By.xpath("//*[@class='site-expertise-list']/li");
     private static final By CONTENT_ABOUT_ROXO = By.className("site-about-wrapper");
 
     // Listing team members
@@ -26,11 +27,6 @@ public class AboutPage extends Page{
     // Listing expertises
     public String[] listExpertises() {
         return listData(TEXT_LIST_EXPERTISES);
-    }
-
-    // get and verify About Roxo Content
-    public String getAboutRoxoContent() {
-        return findElementOnPage(CONTENT_ABOUT_ROXO).getText();
     }
 
     // Listing data

@@ -1,23 +1,21 @@
 package functionTests;
 
-import com.codecool.vizsgaremek.pages.LandingPage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 
 @Epic("'Data modification' functions - These tests covers the verification of 'data modification' functions.")
-@Feature("Edit profile")
 public class DataModificationTest extends TestUtilities {
 
     @BeforeEach
-    void setUpPreconditions() {
+    void setUpsetUpPreconditionStepsPreconditions() {
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
     }
 
     @Test
     @Tag("PROF002")
-    @Description("Edit profile - Validates changing data in profile is successful.")
+    @Description("Edit profile - Verifies changing data in profile is successful.")
     @Story("Edit profile - User changes personal information.")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Edit profile")

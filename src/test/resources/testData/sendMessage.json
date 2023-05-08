@@ -10,8 +10,72 @@
   {
     "firstname": "masik",
     "lastname": "oismasik",
-    "email": "lasay64@bandtoo.com",
+    "email": "yesway64@noway.com",
     "project type": "Graphics Design",
     "about project" : "message here"
+  },
+
+  {
+    "firstname": "Ginger",
+    "lastname": "Snap",
+    "email": "ginger.snap@gmail.com",
+    "project type": "Web Design",
+    "about project": "Looking for someone who can help me create viral memes!"
+  },
+
+  {
+    "firstname": "Cherry",
+    "lastname": "Pie",
+    "email": "cherry.pie@outlook.com",
+    "project type": "Web Design",
+    "about project": "Need a logo for my new bakery that incorporates cherries in the design."
+  },
+
+  {
+    "firstname": "Rock",
+    "lastname": "Bottom",
+    "email": "rock.bottom@yahoo.com",
+    "project type": "Web Design",
+    "about project": "I need someone to write an engaging blog post about the benefits of rock climbing."
+  },
+
+  {
+    "firstname": "Misty",
+    "lastname": "Waters",
+    "email": "misty.waters@hotmail.com",
+    "project type": "Graphics Design",
+    "about project": "Looking for someone to create a montage of my cat doing silly things to post on social media."
+  },
+
+  {
+    "firstname": "Max",
+    "lastname": "Power",
+    "email": "max.power@gmail.com",
+    "project type": "Graphics Design",
+    "about project": "I want a website that looks like it was made in the 90s, complete with cheesy animated gifs."
+  },
+
+  {
+    "firstname": "Sue",
+    "lastname": "Flay",
+    "email": "sue.flay@yahoo.com",
+    "project type": "Graphics Design",
+    "about project": "I need someone to take photos of me jumping in the air with confetti raining down on me."
+  },
+
+  {
+    "firstname": "Buster",
+    "lastname": "Cherry",
+    "email": "buster.cherry@hotmail.com",
+    "project type": "Graphics Design",
+    "about project": "I need a catchy tagline for my new line of spicy condiments."
+  },
+
+  {
+    "firstname": "Anita",
+    "lastname": "Bath",
+    "email": "anita.bath@gmail.com",
+    "project type": "Graphics Design",
+    "about project": "I want to run a social media campaign promoting my line of bath products, but I don't want to make any puns with my last name."
   }
 ]

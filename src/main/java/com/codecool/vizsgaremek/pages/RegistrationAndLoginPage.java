@@ -10,8 +10,6 @@ public class RegistrationAndLoginPage extends Page{
         super(PagesUrl.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver);
     }
 
-
-
     // LOCATORS
     // - Register new user
     private static final By FIELD_USERNAME_TO_REGISTER = By.id("register-username");
@@ -34,8 +32,7 @@ public class RegistrationAndLoginPage extends Page{
     // - Profile
     private static final By BUTTON_PROFILE = By.id("profile-btn");
 
-
-    // Register new user function
+    // FUNCTIONS
 
     public void clickRegisterTab() {
         findElementOnPage(BUTTON_TAB_REGISTER).click();
@@ -57,15 +54,9 @@ public class RegistrationAndLoginPage extends Page{
        return findElementOnPage(TEXT_USER_REGISTERED).isDisplayed();
     }
 
-    public boolean verifyRegistrationFailed(){
-        return findElementOnPage(TEXT_USER_REGISTERED).isDisplayed();
-    }
-
     public void clickRegisterButton() {
         findElementOnPage(BUTTON_REGISTER).click();
     }
-
-    //Login functions
 
     public boolean verifyLoginWindow() {
         return findElementOnPage(BUTTON_LOGIN).isDisplayed();
