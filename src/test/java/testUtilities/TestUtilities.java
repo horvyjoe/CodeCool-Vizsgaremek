@@ -34,8 +34,9 @@ public abstract class TestUtilities {
         @BeforeEach
         void setUp() {
             driver = WebDriverFactory.getWebDriver();
-
         }
+
+        // Lazy page object instantiation
 
         protected final RegistrationAndLoginPage getRegistrationAndLoginPage() {
             if (registrationAndLoginPage == null) {
@@ -86,16 +87,18 @@ public abstract class TestUtilities {
             return profilePage;
         }
 
+
         @AfterEach
         final void tearDown() {
             driver.quit();
         }
 
+
+        // FUNCTIONS
         protected void shootScreenshot(String title) {
             Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         }
 
-        // Write text to file
         @Step("Write text to file")
         protected void writeTextToFile(String text, String fileName) {
             try {

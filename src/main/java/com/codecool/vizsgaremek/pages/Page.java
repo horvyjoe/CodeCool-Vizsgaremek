@@ -14,18 +14,19 @@ abstract class Page {
     private final String url;
 
 
-    //konstruktor - protected, mert csak a gyerekeket akarom hogy használják. Példányosítani az abstract class miatt sem lehet,
-    // ezért itt felesleges protecteden kívül más láthatóságot állítani
+    //CONSTRUCTOR - protected, mert csak a gyerekeket akarom hogy használják. Példányosítani az abstract class miatt sem lehet, ezért itt felesleges protecteden kívül más láthatóságot állítani
 
-    protected Page(String url, WebDriver driver) { //ezeket a paramétereket bekérem
+    protected Page(String url, WebDriver driver) {
         this.url = url;
         this.driver = driver;
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
     }
 
+
+    // FUNCTIONS
     @Step("Navigate to URL")
     public final void navigateTo() {
-        driver.navigate().to(url);  //a navigate().to megőrzi a browser historyt, a driver.get pedig nem
+        driver.navigate().to(url);
     }
 
     public final WebElement findElementOnPage(By locator) {
@@ -36,12 +37,12 @@ abstract class Page {
     }
 
     @Step("Click 'Accept' button in alert box")
-    public void AcceptAlert() {
+    public void acceptAlert() {
         driver.switchTo().alert().accept();
     }
 
     @Step("Read 'Alert' text")
-    public String GetAlertText() {
+    public String getAlertText() {
         return driver.switchTo().alert().getText();
     }
 

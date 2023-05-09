@@ -15,7 +15,7 @@ import testUtilities.TestUtilities;
 import java.io.FileReader;
 import java.io.IOException;
 @Epic("'Repeated serial data entry from data source' functions - These tests covers the verification of the possibility to perform multiple inputs from data stored in a file.")
-public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
+class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
 
     @BeforeEach
     void setUpPreconditionSteps() {
@@ -47,17 +47,17 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
             String projectType = (String) users.get("project type");
             String aboutProject = (String) users.get("about project");
 
-            getGetInTouchPage().TypeSendMessageCredentials(firstname, lastname, email, projectType, aboutProject);
+            getGetInTouchPage().typeSendMessageCredentials(firstname, lastname, email, projectType, aboutProject);
             getGetInTouchPage().clickSendMessageButton();
-            getGetInTouchPage().AcceptAlert();
+            getGetInTouchPage().acceptAlert();
             String expectedAlertText = "Message sent!";
             Thread.sleep(500);
 
             softAssertions.assertThat(getGetInTouchPage().verifyMessageSentText())
-                    .as("Error occurred when message sent by: " + firstname +" "+ lastname )
+                    .as("Error occurred when message sent by: " + firstname + " " + lastname )
                     .isEqualTo(expectedAlertText);
             String shootScreenshotName = "Message sent by: " + firstname +" "+ lastname;
-            shootScreenshot(shootScreenshotName);
+            shootScreenshot("Page status after ' " + firstname + " " + lastname + " ' user's attempt to send message");
             driver.navigate().refresh();
         }
         softAssertions.assertAll();
@@ -89,7 +89,7 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
             softAssertions.assertThat(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful())
                     .as("Error: Registration failed with the following 'VALID' credentials:\nUsername: " + username +"\nPassword: " + password + "\nE-mail: " + email + "\nDescription: " + description)
                     .isEqualTo(true);
-            shootScreenshot("Page status after multiple valid users register registration");
+            shootScreenshot("Page status after ' " + username + " ' user's attempt to register");
             driver.navigate().refresh();
             getRegistrationAndLoginPage().clickRegisterTab();
         }
@@ -120,9 +120,9 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
             getRegistrationAndLoginPage().clickRegisterButton();
 
             softAssertions.assertThat(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful()).
-                    as("Error: registration successful with the following 'INVALID' email address: '" + email+"'").
+                    as("Error: registration successful with the following 'INVALID' email address: '" + email + "'").
                     isEqualTo(false);
-            shootScreenshot("Page status after registration with multiple invalid email addresses");
+            shootScreenshot("Page status after registration attempt with email address: " + email);
             driver.navigate().refresh();
             getRegistrationAndLoginPage().clickRegisterTab();
         }

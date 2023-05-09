@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 
 @Epic("'Data modification' functions - These tests covers the verification of 'data modification' functions.")
-public class DataModificationTest extends TestUtilities {
+class DataModificationTest extends TestUtilities {
 
     @BeforeEach
     void setUpPreconditions() {
@@ -37,7 +37,7 @@ public class DataModificationTest extends TestUtilities {
         getRegistrationAndLoginPage().typeLoginCredentials(username,password);
         getRegistrationAndLoginPage().clickLoginButton();
         getLandingPage().clickProfileButton();
-        getProfilePage().InputChangeProfileData(name, bio, phoneNumber);
+        getProfilePage().inputChangeProfileData(name, bio, phoneNumber);
         getProfilePage().clickSaveProfile();
 
         Assertions.assertTrue(getProfilePage().verifyProfileChanged(),"Failed to modify profile");

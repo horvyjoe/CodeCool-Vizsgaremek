@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class GetInTouchPage extends Page{
 
-    // -LOCATORS
+    // LOCATORS
     private static final By FIELD_FIRST_NAME = By.id("first-name");
     private static final By FIELD_LAST_NAME = By.id("last-name");
     private static final By FIELD_EMAIL = By.id("email");
@@ -18,12 +18,13 @@ public class GetInTouchPage extends Page{
     private static final By TEXT_THERE_WAS_A_PROBLEM = By.id("contact-form-status");
 
 
+    // FUNCTIONS
     public GetInTouchPage(WebDriver driver) {
         super(PagesUrl.GET_IN_TOUCH.getUrl(), driver);
     }
 
     @Step("Type required data to the correct field (First name, Last name, Email, Message, and select Project type from dropdown list)")
-    public void TypeSendMessageCredentials(String firstname, String lastname, String email, String projectType, String message) {
+    public void typeSendMessageCredentials(String firstname, String lastname, String email, String projectType, String message) {
         findElementOnPage(FIELD_FIRST_NAME).sendKeys(firstname);
         findElementOnPage(FIELD_LAST_NAME).sendKeys(lastname);
         findElementOnPage(FIELD_EMAIL).sendKeys(email);
@@ -35,7 +36,6 @@ public class GetInTouchPage extends Page{
     public void clickSendMessageButton() {
     findElementOnPage(BUTTON_SEND_MESSAGE).click();}
 
-
     public boolean verifyMessageSentError() {
         return findElementOnPage(TEXT_THERE_WAS_A_PROBLEM).isDisplayed();
     }
@@ -43,5 +43,4 @@ public class GetInTouchPage extends Page{
     public String verifyMessageSentText() {
         return findElementOnPage(TEXT_THERE_WAS_A_PROBLEM).getText();
     }
-
 }

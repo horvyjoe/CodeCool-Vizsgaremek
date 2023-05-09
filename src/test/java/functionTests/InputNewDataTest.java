@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 
 @Epic("'Input new data' functions - These tests covers the verification of inputting new data functions.")
-public class InputNewDataTest extends TestUtilities {
+class InputNewDataTest extends TestUtilities {
 
     @BeforeEach
     void setUpPreconditionSteps() {
@@ -24,7 +24,7 @@ public class InputNewDataTest extends TestUtilities {
     @DisplayName("INP01 - Sending message")
     void sendMessage() throws InterruptedException {
         getLandingPage().clickGetInTouchButton();
-        getGetInTouchPage().TypeSendMessageCredentials(
+        getGetInTouchPage().typeSendMessageCredentials(
                 "András",
                 "Lovasi",
                 "bandiAHegyrol@kispal.hu",
@@ -35,11 +35,11 @@ public class InputNewDataTest extends TestUtilities {
                         "- Csak én még egy kis maradékot meginnék\n" +
                         "- Látod itt elôttem ezt");
         getGetInTouchPage().clickSendMessageButton();
-        String actualAlertText = getGetInTouchPage().GetAlertText();
-        getGetInTouchPage().AcceptAlert();
+        String actualAlertText = getGetInTouchPage().getAlertText();
+        getGetInTouchPage().acceptAlert();
         String expectedAlertText = "Message sent!";
         Assertions.assertEquals(expectedAlertText, actualAlertText,"Alert text doesn't confirm that message is successfully sent.");
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         Assertions.assertFalse(getGetInTouchPage().verifyMessageSentError(),"'Message not sent' error is visible on the screen");
     }

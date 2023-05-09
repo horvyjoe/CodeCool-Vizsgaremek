@@ -11,7 +11,6 @@ public class ProfilePage extends Page{
     }
 
     //LOCATORS
-
     private static final By FIELD_NAME = By.id("name");
     private static final By FIELD_BIO = By.id("bio");
     private static final By FIELD_PHONE_NUMBER = By.id("phone-number");
@@ -21,8 +20,9 @@ public class ProfilePage extends Page{
     private static final By TEXT_PROFILE_EDITED = By.id("edit-alert");
 
 
+    // FUNCTIONS
     @Step("Input data to change profile fields (Name, Bio, Phone number)")
-    public void InputChangeProfileData(String name, String bio, String phoneNumber) {
+    public void inputChangeProfileData(String name, String bio, String phoneNumber) {
         findElementOnPage(FIELD_NAME).sendKeys(name);
         findElementOnPage(FIELD_BIO).sendKeys(bio);
         findElementOnPage(FIELD_PHONE_NUMBER).sendKeys(phoneNumber);

@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 //Mivel webDrivert minden tesztnél használok, így egyszerűbb ha itt hozom létre és nem tesztClassonként
 public class WebDriverFactory {
 
-
     private WebDriverFactory() {}
 
     public static WebDriver getWebDriver() {

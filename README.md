@@ -15,15 +15,6 @@ Name of educational institution: Codecool
 * Project GitHub repository: https://github.com/horvyjoe/CodeCool-Vizsgaremek
 * Test cases: https://docs.google.com/spreadsheets/d/1DLCM4D3Da4jyChBcDpReSnImBfJuIvpNehPxMM9qAPg/edit?usp=sharing
 
-## Table of contents
-* About the Project
-* Project related links
-* Technologies Used
-* Setup
-* Usage
-* Tested Features
-* Acknowledgement
-
 ## Technologies Used
 This project uses the following technologies:
 

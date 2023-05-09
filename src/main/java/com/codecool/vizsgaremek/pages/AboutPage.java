@@ -15,10 +15,11 @@ public class AboutPage extends Page{
         super(PagesUrl.ABOUT_PAGE.getUrl(), driver);
     }
 
-    // Locators
+    // LOCATORS
     private static final By TEXT_TEAM_MEMBER = By.xpath("//*[@class='site-team-member-content']/h3");
     public static final By TEXT_LIST_EXPERTISES = By.xpath("//*[@class='site-expertise-list']/li");
-    private static final By CONTENT_ABOUT_ROXO = By.className("site-about-wrapper");
+
+    //FUNCTIONS
 
     // Listing team members
     @Step("List team members")

@@ -3,7 +3,6 @@ package com.codecool.vizsgaremek.pages;
 import com.codecool.vizsgaremek.enums.PagesUrl;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class LandingPage extends Page {
@@ -20,6 +19,8 @@ public class LandingPage extends Page {
     private static final By BUTTON_LOGOUT = By.xpath("//*[@onclick='logout()']");
     private static final By BUTTON_BLOG = By.xpath("//*[@class='nav-item']//*[text()='Blog']");
 
+
+    // FUNCTIONS
     @Step("Click 'Home' button")
     public void clickHomeButton() {
         findElementOnPage(BUTTON_HOME).click();
@@ -50,7 +51,6 @@ public class LandingPage extends Page {
         return findElementOnPage(BUTTON_GET_IN_TOUCH).isDisplayed();
     }
 
-
     @Step("Click 'Logout' button")
     public void clickLogoutButton(){
         findElementOnPage(BUTTON_LOGOUT).click();
@@ -59,7 +59,6 @@ public class LandingPage extends Page {
     public boolean verifyLogoutButtonIsDisplayed() {
         return findElementOnPage(BUTTON_LOGOUT).isDisplayed();
     }
-
 
     @Step("Click 'Profile' button")
     public void clickProfileButton() {

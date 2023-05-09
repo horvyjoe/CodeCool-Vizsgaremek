@@ -11,14 +11,13 @@ public class TermsAndConditions extends Page{
     }
 
     // LOCATORS
-    // - Terms and conditions
     private static final By BUTTON_ACCEPT_TERMS_AND_CONDITIONS = By.id("terms-and-conditions-button");
     private static final By BUTTON_CLOSE_TERMS_AND_CONDITIONS = By.className("CloseIcon");
     private static final By POPUP_TERMS_AND_CONDITIONS = By.className("popup");
     private static final By AREA_OUTSIDE_TERMS_AND_CONDITIONS = By.xpath("//body");
     private static final By TEXT_TERMS_AND_CONDITIONS = By.xpath("//*[@class='col col-xs-12']");
 
-    // Terms and conditions function
+    // FUNCTIONS
 
     @Step("Click 'Accept' button to accept 'Terms and conditions'")
     public void clickAcceptTermsAndConditionsButton() {
