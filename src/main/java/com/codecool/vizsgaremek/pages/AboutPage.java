@@ -1,6 +1,7 @@
 package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,16 +21,19 @@ public class AboutPage extends Page{
     private static final By CONTENT_ABOUT_ROXO = By.className("site-about-wrapper");
 
     // Listing team members
+    @Step("List team members")
     public String[] listTeamMembers() {
         return listData(TEXT_TEAM_MEMBER);
     }
 
     // Listing expertises
+    @Step("List expertises")
     public String[] listExpertises() {
         return listData(TEXT_LIST_EXPERTISES);
     }
 
     // Listing data
+    @Step("List all data on requested web element")
     public String[] listData(By locator) {
         List<WebElement> dataElement = findElementsOnPage(locator);
         String[] resultArray = new String[dataElement.size()];

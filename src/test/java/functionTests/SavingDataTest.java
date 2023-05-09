@@ -15,7 +15,8 @@ public class SavingDataTest extends TestUtilities {
     void setUpPreconditionSteps(){
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
-        getRegistrationAndLoginPage().performBuiltInLogin();
+        getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
+        getRegistrationAndLoginPage().clickLoginButton();
     }
 
     @Test

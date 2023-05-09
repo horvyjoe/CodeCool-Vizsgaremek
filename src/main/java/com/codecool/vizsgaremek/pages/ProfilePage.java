@@ -1,6 +1,7 @@
 package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,24 +21,30 @@ public class ProfilePage extends Page{
     private static final By TEXT_PROFILE_EDITED = By.id("edit-alert");
 
 
-    public void changeProfile(String name, String bio, String phoneNumber) {
+    @Step("Input data to change profile fields (Name, Bio, Phone number)")
+    public void InputChangeProfileData(String name, String bio, String phoneNumber) {
         findElementOnPage(FIELD_NAME).sendKeys(name);
         findElementOnPage(FIELD_BIO).sendKeys(bio);
         findElementOnPage(FIELD_PHONE_NUMBER).sendKeys(phoneNumber);
-        findElementOnPage(BUTTON_SAVE_PROFILE).click();
+    }
+
+    @Step("Click 'Save profile' button")
+    public void clickSaveProfile(){
+    findElementOnPage(BUTTON_SAVE_PROFILE).click();
     }
 
     public boolean verifyProfileChanged() {
         return findElementOnPage(TEXT_PROFILE_EDITED).getText().equals("Profile Edited!");
     }
 
+    @Step("Click 'Delete account' button")
     public void clickDeleteAccount(){
         findElementOnPage(BUTTON_DELETE_ACCOUNT).click();
     }
 
+    @Step("Click 'Confirm delete account' button")
     public void clickConfirmDeleteAccount(){
         findElementOnPage(BUTTON_DELETE_ACCOUNT_CONFIRM).click();
     }
-
 }
 

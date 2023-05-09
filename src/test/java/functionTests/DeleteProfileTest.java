@@ -16,30 +16,32 @@ public class DeleteProfileTest extends TestUtilities {
 
     @Test
     @Feature("Delete profile")
-    @Tag("PROF002")
+    @Tag("DEL01")
     @Description("Delete profile - Validates deleting profile is successful.")
     @Story("Delete profile - User deletes user's account.")
     @Severity(SeverityLevel.MINOR)
-    @DisplayName("Delete profile")
+    @DisplayName("DEL01 - Delete profile")
     void deleteProfileTest() {
-        getRegistrationAndLoginPage().navigateTo();
-        getRegistrationAndLoginPage().clickRegisterTab();
+notify();        getRegistrationAndLoginPage().clickRegisterTab();
 
         // Test data
         String username = "Delete Me";
         String password = "uDeleteItItsNotImportant";
-        String email = "stopDeletingMe@yudothis@disappear.com";
+        String email = "stopDeletingMe@disappear.com";
         String description = "The end is coming!";
 
         //Test steps
-        getRegistrationAndLoginPage().performRegistration(username, password, email, description);
+        getRegistrationAndLoginPage().typeRegistrationCredentials(username, password, email, description);
+        getRegistrationAndLoginPage().clickRegisterButton();
         getRegistrationAndLoginPage().clickLoginTab();
-        getRegistrationAndLoginPage().performLogin(username, password);
+        getRegistrationAndLoginPage().typeLoginCredentials(username, password);
+        getRegistrationAndLoginPage().clickLoginButton();
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickProfileButton();
         getProfilePage().clickDeleteAccount();
         getProfilePage().clickConfirmDeleteAccount();
-        getRegistrationAndLoginPage().performLogin(username, description);
+        getRegistrationAndLoginPage().typeLoginCredentials(username, description);
+        getRegistrationAndLoginPage().clickLoginButton();
 
         Assertions.assertTrue(getRegistrationAndLoginPage().verifyLoginFailed(),"Error: After deleting user profile, the user is still able to log in with the deleted profile's login credentials.");
     }

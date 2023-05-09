@@ -1,6 +1,7 @@
 package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,10 +20,12 @@ public class TermsAndConditions extends Page{
 
     // Terms and conditions function
 
+    @Step("Click 'Accept' button to accept 'Terms and conditions'")
     public void clickAcceptTermsAndConditionsButton() {
         findElementOnPage(BUTTON_ACCEPT_TERMS_AND_CONDITIONS).click();
     }
 
+    @Step("Click 'X' button to close 'Terms and conditions'" )
     public void clickCloseTermsAndConditionsButton() {
         findElementOnPage(BUTTON_CLOSE_TERMS_AND_CONDITIONS).click();
     }
@@ -31,13 +34,13 @@ public class TermsAndConditions extends Page{
         return findElementOnPage(POPUP_TERMS_AND_CONDITIONS).isDisplayed();
     }
 
+    @Step("Click out of terms and conditions window")
     public void clickOutsideTermsAndConditions() {
         findElementOnPage(AREA_OUTSIDE_TERMS_AND_CONDITIONS).click();
     }
 
+    @Step("Read 'Terms and conditions' text")
     public String getTextTermsAndConditions() {
         return findElementOnPage(TEXT_TERMS_AND_CONDITIONS).getText();
     }
-
-
 }

@@ -8,17 +8,17 @@ import testUtilities.TestUtilities;
 public class DataModificationTest extends TestUtilities {
 
     @BeforeEach
-    void setUpsetUpPreconditionStepsPreconditions() {
+    void setUpPreconditions() {
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
     }
 
     @Test
-    @Tag("PROF002")
+    @Tag("MOD01")
     @Description("Edit profile - Verifies changing data in profile is successful.")
     @Story("Edit profile - User changes personal information.")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Edit profile")
+    @DisplayName("MOD01 - Edit profile")
     void editProfileTest() {
         //Test data
         String username = "Bandi";
@@ -31,11 +31,14 @@ public class DataModificationTest extends TestUtilities {
 
         //Test steps
         getRegistrationAndLoginPage().clickRegisterTab();
-        getRegistrationAndLoginPage().performRegistration(username, password,email,description);
+        getRegistrationAndLoginPage().typeRegistrationCredentials(username, password,email,description);
+        getRegistrationAndLoginPage().clickRegisterButton();
         getRegistrationAndLoginPage().clickLoginTab();
-        getRegistrationAndLoginPage().performLogin(username,password);
+        getRegistrationAndLoginPage().typeLoginCredentials(username,password);
+        getRegistrationAndLoginPage().clickLoginButton();
         getLandingPage().clickProfileButton();
-        getProfilePage().changeProfile(name, bio, phoneNumber);
+        getProfilePage().InputChangeProfileData(name, bio, phoneNumber);
+        getProfilePage().clickSaveProfile();
 
         Assertions.assertTrue(getProfilePage().verifyProfileChanged(),"Failed to modify profile");
     }

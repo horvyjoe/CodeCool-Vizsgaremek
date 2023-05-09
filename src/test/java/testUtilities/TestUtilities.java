@@ -91,12 +91,12 @@ public abstract class TestUtilities {
             driver.quit();
         }
 
-        @Step("Shoot screenshot")
         protected void shootScreenshot(String title) {
             Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         }
 
         // Write text to file
+        @Step("Write text to file")
         protected void writeTextToFile(String text, String fileName) {
             try {
                 BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));

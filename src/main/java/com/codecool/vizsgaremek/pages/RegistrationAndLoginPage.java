@@ -1,8 +1,10 @@
 package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 
 public class RegistrationAndLoginPage extends Page{
 
@@ -34,6 +36,7 @@ public class RegistrationAndLoginPage extends Page{
 
     // FUNCTIONS
 
+    @Step("Click 'Register' tab")
     public void clickRegisterTab() {
         findElementOnPage(BUTTON_TAB_REGISTER).click();
     }
@@ -42,18 +45,19 @@ public class RegistrationAndLoginPage extends Page{
         return findElementOnPage(FIELD_EMAIL_TO_REGISTER).isDisplayed();
     }
 
-    public void performRegistration(String username, String password, String email, String description) {
+    @Step("Type in registration credentials given in test data (username, password, email, description)")
+    public void typeRegistrationCredentials(String username, String password, String email, String description) {
         findElementOnPage(FIELD_USERNAME_TO_REGISTER).sendKeys(username);
         findElementOnPage(FIELD_PASSWORD_TO_REGISTER).sendKeys(password);
         findElementOnPage(FIELD_EMAIL_TO_REGISTER).sendKeys(email);
         findElementOnPage(FIELD_DESCRIPTION_TO_REGISTER).sendKeys(description);
-        findElementOnPage(BUTTON_REGISTER).click();
     }
 
     public boolean verifyRegistrationIsSuccessful(){
        return findElementOnPage(TEXT_USER_REGISTERED).isDisplayed();
     }
 
+    @Step("Click 'Register' button")
     public void clickRegisterButton() {
         findElementOnPage(BUTTON_REGISTER).click();
     }
@@ -62,17 +66,20 @@ public class RegistrationAndLoginPage extends Page{
         return findElementOnPage(BUTTON_LOGIN).isDisplayed();
     }
 
+    @Step("Click 'Login' tab")
     public void clickLoginTab() {
         findElementOnPage(BUTTON_TAB_LOGIN).click();
     }
+
+    @Step("Click 'Login' button")
     public void clickLoginButton() {
         findElementOnPage(BUTTON_LOGIN).click();
     }
 
-    public void performLogin(String username, String password) {
+    @Step("Type in login credentials given in test data (username and password)")
+    public void typeLoginCredentials(String username, String password) {
         findElementOnPage(FIELD_USERNAME).sendKeys(username);
         findElementOnPage(FIELD_PASSWORD).sendKeys(password);
-        findElementOnPage(BUTTON_LOGIN).click();
     }
 
     public boolean verifyLoginFailed() {
@@ -81,7 +88,10 @@ public class RegistrationAndLoginPage extends Page{
     public boolean verifyLoginSuccessful() {
         return findElementOnPage(BUTTON_PROFILE).isDisplayed();
     }
-    public void performBuiltInLogin(){
-        performLogin(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
+
+    @Step("Type built in login credentials to login fields. Built in username: "+BUILT_IN_USERNAME+", Built in password: "+BUILT_IN_PASSWORD)
+    public void typeBuiltInLoginCredentials(){
+        findElementOnPage(FIELD_USERNAME).sendKeys(BUILT_IN_USERNAME);
+        findElementOnPage(FIELD_PASSWORD).sendKeys(BUILT_IN_PASSWORD);
     }
 }

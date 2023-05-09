@@ -15,7 +15,8 @@ public class InputNewDataTest extends TestUtilities {
 
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
-        getRegistrationAndLoginPage().performBuiltInLogin();
+        getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
+        getRegistrationAndLoginPage().clickLoginButton();
         getGetInTouchPage().navigateTo();
     }
 
@@ -26,7 +27,7 @@ public class InputNewDataTest extends TestUtilities {
     @DisplayName("Sending message")
     void sendMessage() throws InterruptedException {
         getLandingPage().clickGetInTouchButton();
-        getGetInTouchPage().performSendMessage(
+        getGetInTouchPage().TypeSendMessageCredentials(
                 "András",
                 "Lovasi",
                 "bandiAHegyrol@kispal.hu",
@@ -36,6 +37,7 @@ public class InputNewDataTest extends TestUtilities {
                         "Aki az est gyôztese lesz - Jó - mondok\n" +
                         "- Csak én még egy kis maradékot meginnék\n" +
                         "- Látod itt elôttem ezt");
+        getGetInTouchPage().clickSendMessageButton();
         String actualAlertText = getGetInTouchPage().GetAlertText();
         getGetInTouchPage().AcceptAlert();
         String expectedAlertText = "Message sent!";

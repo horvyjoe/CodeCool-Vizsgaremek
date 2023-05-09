@@ -29,7 +29,8 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Send multiple messages from file")
     void sendMultipleMessage() throws InterruptedException, IOException, ParseException {
-        getRegistrationAndLoginPage().performBuiltInLogin();
+        getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
+        getRegistrationAndLoginPage().clickLoginButton();
         getGetInTouchPage().navigateTo();
         getLandingPage().clickGetInTouchButton();
         JSONParser parser = new JSONParser();
@@ -46,7 +47,8 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
             String projectType = (String) users.get("project type");
             String aboutProject = (String) users.get("about project");
 
-            getGetInTouchPage().performSendMessage(firstname, lastname, email, projectType, aboutProject);
+            getGetInTouchPage().TypeSendMessageCredentials(firstname, lastname, email, projectType, aboutProject);
+            getGetInTouchPage().clickSendMessageButton();
             getGetInTouchPage().AcceptAlert();
             String expectedAlertText = "Message sent!";
             Thread.sleep(500);
@@ -81,7 +83,9 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
             String email = (String) users.get("email");
             String description = (String) users.get("description");
 
-            getRegistrationAndLoginPage().performRegistration(username, password, email, description);
+            getRegistrationAndLoginPage().typeRegistrationCredentials(username, password, email, description);
+            getRegistrationAndLoginPage().clickRegisterButton();
+
             softAssertions.assertThat(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful())
                     .as("Error: Registration failed with the following 'VALID' credentials:\nUsername: " + username +"\nPassword: " + password + "\nE-mail: " + email + "\nDescription: " + description)
                     .isEqualTo(true);
@@ -112,7 +116,9 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
             String email = (String) users.get("email");
             String description = (String) users.get("description");
 
-            getRegistrationAndLoginPage().performRegistration(username, password, email, description);
+            getRegistrationAndLoginPage().typeRegistrationCredentials(username, password, email, description);
+            getRegistrationAndLoginPage().clickRegisterButton();
+
             softAssertions.assertThat(getRegistrationAndLoginPage().verifyRegistrationIsSuccessful()).
                     as("Error: registration successful with the following 'INVALID' email address: '" + email+"'").
                     isEqualTo(false);

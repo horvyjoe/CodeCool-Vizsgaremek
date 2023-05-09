@@ -42,7 +42,9 @@ public class RegistrationTest extends TestUtilities {
 
         //Test steps
         getRegistrationAndLoginPage().clickRegisterTab();
-        getRegistrationAndLoginPage().performRegistration(username, password, email, description);
+        getRegistrationAndLoginPage().typeRegistrationCredentials(username, password, email, description);
+        getRegistrationAndLoginPage().clickRegisterButton();
+
 
         //Shoot screenshot for Allure report
         shootScreenshot("Page status after registration with correct credentials");
@@ -80,7 +82,9 @@ public class RegistrationTest extends TestUtilities {
 
         //Test steps
         getRegistrationAndLoginPage().clickRegisterTab();
-        getRegistrationAndLoginPage().performRegistration(username, password, email, description);
+        getRegistrationAndLoginPage().typeRegistrationCredentials(username, password, email, description);
+        getRegistrationAndLoginPage().clickRegisterButton();
+
 
         //Shoot screenshot for Allure report
         shootScreenshot("Page status after invalid email credential registration");

@@ -1,6 +1,8 @@
 package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import io.qameta.allure.Severity;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
@@ -45,34 +47,42 @@ public class BlogPage extends Page{
         return collectBlogTitles.toArray(new String[0]);
     }
 
+    @Step("Click on 'Biggest rebrands 2019' title")
     public void clickBiggestRebrands2019Title() {
         findElementOnPage(BUTTON_BIGGEST_REBRANDS_2019).click();
     }
 
+    @Step("Read 'Biggest rebrands 2019' blog's text")
     public String getBiggestRebrands2019Text() {
         return findElementOnPage(TEXT_BIGGEST_REBRANDS_2019).getText();
     }
 
+    @Step("Click on 'Colour of the year 2020' title")
     public void clickColourOfTheYear2020Title() {
         findElementOnPage(BUTTON_TITLE_COLOUR_OF_THE_YEAR_2020).click();
     }
 
+    @Step("Read 'Colour of the year 2020' blog's text")
     public String getColourOfTheYear2020BlogText() {
         return findElementOnPage(TEXT_BLOG_COLOUR_OF_THE_YEAR_2020).getText();
     }
 
+    @Step("Click on 'December' blog title")
     public void clickDecemberTitle() {
         findElementOnPage(BUTTON_TITLE_PROJECT_FROM_DECEMBER).click();
     }
 
+    @Step("Read 'December' blog's text")
     public String getDecemberBlogText() {
         return findElementOnPage(TEXT_BLOG_DECEMBER).getText();
     }
 
+    @Step("Click on 'November' blog title")
     public void clickNovemberTitle() {
         findElementOnPage(BUTTON_TITLE_PROJECTS_FROM_NOVEMBER).click();
     }
 
+    @Step("Read 'November' blog's text")
     public String getNovemberBlogText() {
         return findElementOnPage(TEXT_BLOG_NOVEMBER).getText();
     }

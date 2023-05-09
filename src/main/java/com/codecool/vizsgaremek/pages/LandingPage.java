@@ -1,7 +1,9 @@
 package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class LandingPage extends Page {
@@ -18,6 +20,7 @@ public class LandingPage extends Page {
     private static final By BUTTON_LOGOUT = By.xpath("//*[@onclick='logout()']");
     private static final By BUTTON_BLOG = By.xpath("//*[@class='nav-item']//*[text()='Blog']");
 
+    @Step("Click 'Home' button")
     public void clickHomeButton() {
         findElementOnPage(BUTTON_HOME).click();
     }
@@ -30,6 +33,7 @@ public class LandingPage extends Page {
         return findElementOnPage(BUTTON_HOME).isDisplayed();
     }
 
+    @Step("Click 'About' button")
     public void clickAboutButton() {
         findElementOnPage(BUTTON_ABOUT_PAGE).click();
     }
@@ -38,6 +42,7 @@ public class LandingPage extends Page {
         return findElementOnPage(BUTTON_ABOUT_PAGE).isDisplayed();
     }
 
+    @Step("Click 'Get in touch' button")
     public void clickGetInTouchButton() {
         findElementOnPage(BUTTON_GET_IN_TOUCH).click();
     }
@@ -46,6 +51,7 @@ public class LandingPage extends Page {
     }
 
 
+    @Step("Click 'Logout' button")
     public void clickLogoutButton(){
         findElementOnPage(BUTTON_LOGOUT).click();
     }
@@ -55,11 +61,13 @@ public class LandingPage extends Page {
     }
 
 
+    @Step("Click 'Profile' button")
     public void clickProfileButton() {
         findElementOnPage(BUTTON_PROFILE).click();
     }
+
+    @Step("Click 'Blog' button")
     public void clickBlogButton() {
         findElementOnPage(BUTTON_BLOG).click();
     }
-
-}
+    }

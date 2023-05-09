@@ -12,7 +12,8 @@ public class MenuButtonsTest extends TestUtilities {
     void setUpPreconditionSteps() {
         getLandingPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
-        getRegistrationAndLoginPage().performBuiltInLogin();
+        getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
+        getRegistrationAndLoginPage().clickLoginButton();
     }
 
     @Test

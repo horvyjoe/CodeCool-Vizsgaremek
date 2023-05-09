@@ -1,6 +1,7 @@
 package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.PagesUrl;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -21,14 +22,19 @@ public class GetInTouchPage extends Page{
         super(PagesUrl.GET_IN_TOUCH.getUrl(), driver);
     }
 
-    public void performSendMessage(String firstname, String lastname, String email, String projectType, String message) {
+    @Step("Type required data to the correct field (First name, Last name, Email, Message, and select Project type from dropdown list,)")
+    public void TypeSendMessageCredentials(String firstname, String lastname, String email, String projectType, String message) {
         findElementOnPage(FIELD_FIRST_NAME).sendKeys(firstname);
         findElementOnPage(FIELD_LAST_NAME).sendKeys(lastname);
         findElementOnPage(FIELD_EMAIL).sendKeys(email);
         new Select(findElementOnPage(DROPDOWN_PROJECT_TYPE)).selectByVisibleText(projectType);
         findElementOnPage(FIELD_ABOUT_PROJECT).sendKeys(message);
-        findElementOnPage(BUTTON_SEND_MESSAGE).click();
     }
+
+    @Step("Click 'Send message' button")
+    public void clickSendMessageButton() {
+    findElementOnPage(BUTTON_SEND_MESSAGE).click();}
+
 
     public boolean verifyMessageSentError() {
         return findElementOnPage(TEXT_THERE_WAS_A_PROBLEM).isDisplayed();

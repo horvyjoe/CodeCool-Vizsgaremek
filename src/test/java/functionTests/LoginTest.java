@@ -60,7 +60,8 @@ public class LoginTest extends TestUtilities {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("'Built-in' credentials login ")
     void builtInCredentialLoginTest () {
-        getRegistrationAndLoginPage().performBuiltInLogin();
+        getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
+        getRegistrationAndLoginPage().clickLoginButton();
         shootScreenshot("Page status after login attempt with built-in user credentials");
         Assertions.assertEquals(PagesUrl.LANDING_PAGE.getUrl(), driver.getCurrentUrl(),"The actual URL doesn't match expected URL. After successful login, browser must navigate to 'Landing page URL'");
         Assertions.assertTrue(getRegistrationAndLoginPage().verifyLoginSuccessful(),"User's 'profile button' is not visible! After successful login, this element must be accessible!");

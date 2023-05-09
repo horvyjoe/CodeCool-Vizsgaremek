@@ -13,7 +13,8 @@ public class LogoutTest extends TestUtilities {
     void setUpPreconditionSteps() {
         getLandingPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
-        getRegistrationAndLoginPage().performBuiltInLogin();
+        getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
+        getRegistrationAndLoginPage().clickLoginButton();
     }
     @Test
     @Feature("'Logout' function")
@@ -39,8 +40,7 @@ public class LogoutTest extends TestUtilities {
     @DisplayName("Logout and press 'back'")
     void logoutAndPressBackTest() {
         getLandingPage().clickLogoutButton();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.history.go(-1)");
+        getLandingPage().navigateBackBrowser();
 
         Assertions.assertFalse(getLandingPage().verifyLogoutButtonIsDisplayed(),"Error: After logout, and 'back' button is clicked, the browser successfully navigates back to page as a logged in user!");
     }
