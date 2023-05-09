@@ -24,14 +24,14 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
     }
 
     @Test
+    @Tag("REP01")
     @Description("The test verifies the 'Get in touch' menu's send message function.")
     @Story("On Get in touch page sending a message must be possible. User is using data stored in a file for repeated serial data entry")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Send multiple messages from file")
+    @DisplayName("REP01 - Send multiple messages from file")
     void sendMultipleMessage() throws InterruptedException, IOException, ParseException {
         getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
         getRegistrationAndLoginPage().clickLoginButton();
-        getGetInTouchPage().navigateTo();
         getLandingPage().clickGetInTouchButton();
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(new FileReader("src/test/resources/testData/sendMessage.json"));
@@ -64,11 +64,11 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
     }
 
     @Test
-    @Tag("REG006")
+    @Tag("REP02")
     @Description("Multiple valid users register - Reading valid registration credentials from a file, multiple users can be registered.")
     @Story("Multiple valid users register - User registers multiple accounts from valid credentials stored in a file.")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Multiple valid users register")
+    @DisplayName("REP02 - Multiple valid users register")
     void registerMultipleValidUsersTest () throws IOException, ParseException {
 
         getRegistrationAndLoginPage().clickRegisterTab();
@@ -97,11 +97,11 @@ public class RepeatedSerialDataEntryFromDataSourceTest extends TestUtilities {
     }
 
     @Test
-    @Tag("REG007")
+    @Tag("REP03")
     @Description("Multiple invalid email users register - Reading invalid email registration credentials from a file, registrations must fail.")
     @Story("Multiple invalid users register - User registers multiple accounts from invalid email credentials stored in a file.")
     @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Multiple invalid users register")
+    @DisplayName("REP03 - Multiple invalid users register")
     void registerMultipleInvalidEmailUsersTest () throws IOException, ParseException {
 
         getRegistrationAndLoginPage().clickRegisterTab();

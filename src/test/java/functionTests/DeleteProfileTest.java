@@ -22,7 +22,7 @@ public class DeleteProfileTest extends TestUtilities {
     @Severity(SeverityLevel.MINOR)
     @DisplayName("DEL01 - Delete profile")
     void deleteProfileTest() {
-notify();        getRegistrationAndLoginPage().clickRegisterTab();
+        getRegistrationAndLoginPage().clickRegisterTab();
 
         // Test data
         String username = "Delete Me";

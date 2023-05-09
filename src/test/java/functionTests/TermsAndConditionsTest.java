@@ -16,11 +16,11 @@ public class TermsAndConditionsTest extends TestUtilities {
     }
 
     @Test
-    @Tag("TC002")
+    @Tag("TC01")
     @Description("Accept 'Terms and conditions'")
     @Story("Accept - Terms and conditions window is displayed and can be accepted by user.")
     @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Accept 'Terms and conditions'")
+    @DisplayName("TC01 - Accept 'Terms and conditions'")
     void clickAcceptTermsAndConditionsButtonTest() {
         Assertions.assertTrue(getTermsAndConditionsPage().validateTermsAndConditionsPopupIsDisplayed(),"Terms and conditions popup is NOT displayed!");
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
@@ -29,11 +29,11 @@ public class TermsAndConditionsTest extends TestUtilities {
     }
 
     @Test
-    @Tag("TC003")
+    @Tag("TC02")
     @Description("Close 'Terms and conditions'")
     @Story("Close - Terms and conditions window is displayed and can be closed by user with button 'X'.")
     @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Close 'Terms and conditions'")
+    @DisplayName("TC02 - Close 'Terms and conditions'")
     void clickCloseTermsAndConditionsButtonTest() {
         Assertions.assertTrue(getTermsAndConditionsPage().validateTermsAndConditionsPopupIsDisplayed(),"Terms and conditions popup is NOT displayed!");
         getTermsAndConditionsPage().clickCloseTermsAndConditionsButton();
@@ -42,11 +42,11 @@ public class TermsAndConditionsTest extends TestUtilities {
     }
 
     @Test
-    @Tag("TC004")
+    @Tag("TC03")
     @Description("Click out of 'Terms and conditions' window")
     @Story("Click out - Terms and conditions window is displayed and user clicks out of the window. The window must remain visible.")
     @Severity(SeverityLevel.MINOR)
-    @DisplayName("Click out of 'Terms and conditions'")
+    @DisplayName("TC03 - Click out of 'Terms and conditions'")
     void clickOutsideTermsAndConditionsWindowTest() {
         Assertions.assertTrue(getTermsAndConditionsPage().validateTermsAndConditionsPopupIsDisplayed(),"Terms and conditions popup is NOT displayed!");
         getTermsAndConditionsPage().clickOutsideTermsAndConditions();
@@ -55,11 +55,11 @@ public class TermsAndConditionsTest extends TestUtilities {
     }
 
     @Test
-    @Tag("TC005")
+    @Tag("TC04")
     @Description("Comparing the text of 'Terms and conditions' to a text stored in a '.txt' file")
     @Story("Verify text - Terms and conditions window's displayed text must match text stored in 'termsAndConditions.txt'.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Verify text of 'Terms and conditions'")
+    @DisplayName("TC04 - Verify text of 'Terms and conditions'")
     void verifyTermsAndConditionsTextTest() throws IOException {
         shootScreenshot("Actual text of 'Terms and conditions' popup");
         Assertions.assertTrue(getTermsAndConditionsPage().validateTermsAndConditionsPopupIsDisplayed(),"Terms and conditions popup is NOT displayed!");

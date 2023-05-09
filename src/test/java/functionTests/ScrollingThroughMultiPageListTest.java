@@ -1,10 +1,7 @@
 package functionTests;
 
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 @Epic("'Scrolling through multi pages' functions - These tests covers the verification of scrolling through multiple pages.")
 public class ScrollingThroughMultiPageListTest extends TestUtilities {
@@ -18,10 +15,11 @@ public class ScrollingThroughMultiPageListTest extends TestUtilities {
     }
 
     @Test
+    @Tag("PAG01")
     @Description("The test verifies the titles of all blog pages.")
-    @Story("User is collecting the titles of every blog. The blogs can be found on multiple pages.")
+    @Story("User is collecting the titles of all blogs on website. The blogs can be found on multiple pages.")
     @Severity(SeverityLevel.MINOR)
-    @DisplayName("'Multi page scroll' - Collect blog titles ")
+    @DisplayName("PAG01 - 'Multi page scroll' - Collect blog titles ")
     void blogTitleCollectTest() {
         getLandingPage().clickBlogButton();
         String[] actual = getBlogPage().findBlogTitles();

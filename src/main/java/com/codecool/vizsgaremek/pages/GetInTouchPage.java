@@ -22,7 +22,7 @@ public class GetInTouchPage extends Page{
         super(PagesUrl.GET_IN_TOUCH.getUrl(), driver);
     }
 
-    @Step("Type required data to the correct field (First name, Last name, Email, Message, and select Project type from dropdown list,)")
+    @Step("Type required data to the correct field (First name, Last name, Email, Message, and select Project type from dropdown list)")
     public void TypeSendMessageCredentials(String firstname, String lastname, String email, String projectType, String message) {
         findElementOnPage(FIELD_FIRST_NAME).sendKeys(firstname);
         findElementOnPage(FIELD_LAST_NAME).sendKeys(lastname);

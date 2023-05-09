@@ -17,10 +17,11 @@ public class MenuButtonsTest extends TestUtilities {
     }
 
     @Test
+    @Tag("MEN01")
     @Description("The test verifies that on LandingPage the 'Home' button is visible, and clicking on it navigates to the correct page.")
     @Story("User on landing page, clicks 'Home' button.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Click Home button")
+    @DisplayName("MEN01 - Click Home button")
     void clickHomeButtonTest() {
         Assertions.assertTrue(getLandingPage().verifyHomeButtonIsDisplayed(),"Home button is not displayed on page!");
 
@@ -30,11 +31,13 @@ public class MenuButtonsTest extends TestUtilities {
         Assertions.assertFalse(getLandingPage().verifyHomeButtonNavigation(),"Navigation failed after clicking Home button");
     }
 
+
     @Test
+    @Tag("MEN02")
     @Description("The test verifies that on LandingPage the 'About' button is visible, and clicking on it navigates to the correct page.")
     @Story("User on landing page clicks 'About' button.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Click About button")
+    @DisplayName("MEN02 - Click About button")
     void clickAboutButtonTest() {
         Assertions.assertTrue(getLandingPage().verifyAboutButtonIsDisplayed(),"About button is not displayed on page!");
 
@@ -45,10 +48,11 @@ public class MenuButtonsTest extends TestUtilities {
     }
 
     @Test
+    @Tag("MEN03")
     @Description("The test verifies that on LandingPage the 'Get in touch' button is visible, and clicking on it navigates to the correct page.")
     @Story("User on landing page clicks 'Get in touch' button.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Click Get in touch button")
+    @DisplayName("MEN03 - Click Get in touch button")
     void clickGetInTouchButtonTest() {
         Assertions.assertTrue(getLandingPage().verifyGetInTouchButtonIsDisplayed(),"'Get in touch' button is not displayed on page!");
 

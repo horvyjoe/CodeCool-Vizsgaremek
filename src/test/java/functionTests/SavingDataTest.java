@@ -24,7 +24,7 @@ public class SavingDataTest extends TestUtilities {
     @Description("Saving text of 'December blog'")
     @Story("Saving text - User is saving the text of 'December blog' to blogDecember.txt.")
     @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Save 'December blog' text")
+    @DisplayName("SAV01 - Save 'December blog' text")
     void saveBlogDecember() throws IOException {
         getLandingPage().clickBlogButton();
         Assertions.assertEquals(PagesUrl.BLOG_PAGE.getUrl(), driver.getCurrentUrl(),"This is not the correct blog page!");
@@ -44,7 +44,7 @@ public class SavingDataTest extends TestUtilities {
     @Description("Saving text of 'November blog'")
     @Story("Saving text - User is saving the text of 'November blog' to blogNovember.txt.")
     @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Save 'November blog' text")
+    @DisplayName("SAV02 - Save 'November blog' text")
     void saveBlogNovember() throws IOException {
         getLandingPage().clickBlogButton();
         Assertions.assertEquals(PagesUrl.BLOG_PAGE.getUrl(), driver.getCurrentUrl(),"This is not the correct blog page!");
@@ -64,7 +64,7 @@ public class SavingDataTest extends TestUtilities {
     @Description("Saving text of 'Biggest Rebrands 2019 blog'")
     @Story("Saving text - User is saving the text of 'Biggest Rebrands 2019 blog' to blogBiggestRebrands2019.txt.")
     @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Save 'Biggest Rebrands 2019 blog' text")
+    @DisplayName("SAV03 - Save 'Biggest Rebrands 2019 blog' text")
     void saveBlogBiggestRebrands2019() throws IOException {
         getLandingPage().clickBlogButton();
         Assertions.assertEquals(PagesUrl.BLOG_PAGE.getUrl(), driver.getCurrentUrl(),"This is not the correct blog page!");
@@ -80,11 +80,11 @@ public class SavingDataTest extends TestUtilities {
     }
 
     @Test
-    @Tag("SAV03")
+    @Tag("SAV04")
     @Description("Saving text of 'Colour of the year 2020 blog'")
     @Story("Saving text - User is saving the text of 'Colour of the year 2020 blog' to blogColourOfTheYear2020.txt.")
     @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Save 'Colour of the year 2020 blog' text")
+    @DisplayName("SAV04 - Save 'Colour of the year 2020 blog' text")
     void saveBlogColourOfTheYear2020() throws IOException {
         getLandingPage().clickBlogButton();
         Assertions.assertEquals(PagesUrl.BLOG_PAGE.getUrl(), driver.getCurrentUrl(),"This is not the correct blog page!");

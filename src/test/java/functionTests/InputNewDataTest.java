@@ -1,10 +1,7 @@
 package functionTests;
 
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import testUtilities.TestUtilities;
 
 @Epic("'Input new data' functions - These tests covers the verification of inputting new data functions.")
@@ -12,7 +9,6 @@ public class InputNewDataTest extends TestUtilities {
 
     @BeforeEach
     void setUpPreconditionSteps() {
-
         getRegistrationAndLoginPage().navigateTo();
         getTermsAndConditionsPage().clickAcceptTermsAndConditionsButton();
         getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
@@ -21,10 +17,11 @@ public class InputNewDataTest extends TestUtilities {
     }
 
     @Test
+    @Tag("INP01")
     @Description("The test verifies the 'Get in touch' menu's send message function.")
     @Story("On Get in touch page sending a message must be possible.")
     @Severity(SeverityLevel.MINOR)
-    @DisplayName("Sending message")
+    @DisplayName("INP01 - Sending message")
     void sendMessage() throws InterruptedException {
         getLandingPage().clickGetInTouchButton();
         getGetInTouchPage().TypeSendMessageCredentials(

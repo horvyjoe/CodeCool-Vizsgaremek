@@ -14,11 +14,11 @@ public class LoginTest extends TestUtilities {
 
     @Test
     @Feature("'Login' function")
-    @Tag("LIN001")
+    @Tag("LIN01")
     @Description("Login window - Verifies after handling the 'Terms and conditions' window, the 'Login' window is visible by default")
     @Story("Login window - after handling the 'Terms and conditions' window, the 'Login' window is visible by default.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("'Login' window check")
+    @DisplayName("LIN01 - 'Login' window check")
     void loginWindowTest () {
         shootScreenshot("Page status after entering login page");
         Assertions.assertTrue(getRegistrationAndLoginPage().verifyLoginWindow(),"Login window is NOT displayed!");
@@ -26,11 +26,11 @@ public class LoginTest extends TestUtilities {
 
     @Test
     @Feature("'Login' function")
-    @Tag("LIN002")
+    @Tag("LIN02")
     @Description("Login tab - Verifies after switching to 'Register' tab, register window is displayed. 'Login' tab is active, and when a click is performed on it, the 'login' window will be displayed")
     @Story("Login tab - User switches to 'Register' tab, then switches back to 'Login' tab.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("'Login' tab check")
+    @DisplayName("LIN02 - 'Login' tab check")
     void loginTabTest () {
         getRegistrationAndLoginPage().clickRegisterTab();
         Assertions.assertTrue(getRegistrationAndLoginPage().validateRegisterWindow(),"Failed switch to 'Register' tab! Test stops, and can't continue to check switching to 'Login' tab");
@@ -41,11 +41,11 @@ public class LoginTest extends TestUtilities {
     }
 
     @Test
-    @Tag("LIN003")
+    @Tag("LIN03")
     @Description("Empty credentials login - verifying user login is not possible when no login data is provided")
     @Story("Empty credentials login - User leaves login credential fields empty, and clicks on 'Login' button.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("'Empty' credentials login")
+    @DisplayName("LIN03 - 'Empty' credentials login")
     void emptyCredentialLoginTest () {
         getRegistrationAndLoginPage().clickLoginButton();
         shootScreenshot("Page status after login attempt with empty user credentials");
@@ -54,11 +54,11 @@ public class LoginTest extends TestUtilities {
     }
 
     @Test
-    @Tag("LIN004")
+    @Tag("LIN04")
     @Description("Built-in credentials login - validating user login is possible with built-in login credentials")
     @Story("Built-in credentials login - User logs in with built-in login credentials.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("'Built-in' credentials login ")
+    @DisplayName("LIN04 - 'Built-in' credentials login ")
     void builtInCredentialLoginTest () {
         getRegistrationAndLoginPage().typeBuiltInLoginCredentials();
         getRegistrationAndLoginPage().clickLoginButton();

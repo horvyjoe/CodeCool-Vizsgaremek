@@ -13,7 +13,7 @@ Name of educational institution: Codecool
 * Tested website: https://lennertamas.github.io/roxo/
 * Allure report: https://horvyjoe.github.io/CodeCool-Vizsgaremek/
 * Project GitHub repository: https://github.com/horvyjoe/CodeCool-Vizsgaremek
-* Test cases: --- COMING SOON ---
+* Test cases: https://docs.google.com/spreadsheets/d/1DLCM4D3Da4jyChBcDpReSnImBfJuIvpNehPxMM9qAPg/edit?usp=sharing
 
 ## Table of contents
 * About the Project
@@ -22,6 +22,7 @@ Name of educational institution: Codecool
 * Setup
 * Usage
 * Tested Features
+* Acknowledgement
 
 ## Technologies Used
 This project uses the following technologies:
@@ -60,11 +61,6 @@ The following features, functions and behaviours have been tested:
 * Saving data
 * Scrolling through multiple pages
 * Handling terms and conditions
-
-
-## Contributors
-* Horváth József (creator)
-* Lenner Tamás (mentor)
 
 ## Acknowledgement
 This project was created as part of the Junior Automation Test Engineer course at CodeCool."

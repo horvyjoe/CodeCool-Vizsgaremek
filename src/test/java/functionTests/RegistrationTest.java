@@ -14,11 +14,11 @@ public class RegistrationTest extends TestUtilities {
     }
 
     @Test
-    @Tag("REG001")
+    @Tag("REG01")
     @Description("Register tab - validating switching tab when 'Register' tab is clicked")
     @Story("Register tab - By clicking on 'Register' tab, the tab switches to register tab.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Switch to 'Register' tab")
+    @DisplayName("REG01 - Switch to 'Register' tab")
     void switchToRegisterTabTest () {
         getRegistrationAndLoginPage().clickRegisterTab();
 
@@ -27,11 +27,11 @@ public class RegistrationTest extends TestUtilities {
     }
 
     @Test
-    @Tag("REG002")
+    @Tag("REG02")
     @Description("Using correct credentials - validating new user registration is possible")
     @Story("Correct credentials - User registers a new user with correct credentials.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Correct credentials registration")
+    @DisplayName("REG02 - Correct credentials registration")
     void registerNewUserTest () {
 
         //Testdata
@@ -54,11 +54,11 @@ public class RegistrationTest extends TestUtilities {
     }
 
     @Test
-    @Tag("REG003")
+    @Tag("REG03")
     @Description("Using 'empty' credentials - validating new user registration is not possible when no data's are provided")
     @Story("Empty credentials - User registers a new user with empty credentials.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Empty credentials registration")
+    @DisplayName("REG03 - Empty credentials registration")
     void registerWithEmptyCredentialsTest () {
         getRegistrationAndLoginPage().clickRegisterTab();
         getRegistrationAndLoginPage().clickRegisterButton();
@@ -68,11 +68,11 @@ public class RegistrationTest extends TestUtilities {
     }
 
     @Test
-    @Tag("REG004")
+    @Tag("REG04")
     @Description("Using 'invalid email' credentials - new user registration is not possible when no valid email address is provided")
     @Story("Invalid email credential - User registers a new user with invalid email credential.")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Invalid email credential registration")
+    @DisplayName("REG04 - Invalid email credential registration")
     void registerWithInvalidEmailTest () {
         //Test data
         String username = "johnDoe";
